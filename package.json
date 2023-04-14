@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db:seed": "node db/seed"
+    "db:seed": "node db/seed",
+    "server-dev": "nodemon server/index"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
     "pg": "^8.10.0"
   }
 }
