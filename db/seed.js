@@ -1,9 +1,12 @@
 const client = require('./client');
 
+const createSpellList = require('./spellAjax');
+
 const {
   createNewSpell
 
-} = require('.')
+} = require('.');
+// const { default: createSpellList } = require('./spellAjax');
 
 
 const dropTables = async() =>{
@@ -38,10 +41,16 @@ const buildTables = async() => {
   console.log('FINISHED BUILDING TABLES');
 }
 
-const createSpellsFromApi = async() =>{
-  console.log('CREATING SPELLS');
-  await createNewSpell('test','evocation', '2', '6 seconds', 'tests table', '10 feet', true)
-  console.log('FINISHED CREATING SPELLS')
+const createNewSpells = async() =>{
+  console.log('CREATING SPELL LIST FROM API');
+  const spellList = await createSpellList();
+  console.log('FINISHED CREATING SPELL LIST FROM API')
+  console.log('ADDING SPELL LIST TO SPELLSTABLE');
+  for(let i = 0; i < spellList.length; i++){
+    const currentSpell = spellList[i];    
+    await createNewSpell(currentSpell.name, currentSpell.school, currentSpell.level, currentSpell.castingTime , currentSpell.description, currentSpell.range, true)
+  }
+  console.log('FINISHED ADDING SPELLS LIST TO SPELLS TABLE')
 
 }
 
@@ -51,7 +60,7 @@ const seedDb = async() =>{
   console.log('FINISHED CONNECTING TO DB')
   await dropTables();
   await buildTables();
-  console.log(await createSpellsFromApi());
+  await createNewSpells();
   console.log('DISCONNECTING FROM DB')
   client.end();
   console.log('CONNECTION TO DB CLOSED');
