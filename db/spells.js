@@ -8,7 +8,6 @@ const createNewSpell = async(name, school, baseLevel, castingTime, description,
         VALUES($1, $2, $3, $4, $5, $6, $7)
         RETURNING *;
   `, [name,school, baseLevel, castingTime, description, range, isActive]);
-  console.log(spell)
   return spell    
   }catch(err){
     throw err;
