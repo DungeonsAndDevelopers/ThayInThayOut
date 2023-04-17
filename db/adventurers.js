@@ -18,9 +18,26 @@ const createNewAdventurer = async(firstName, lastName, emailAddress, username,
    }
 }
 
+const getAdventurerByUsernameAndPassword = async(username, password) =>{
+  if(!username, !password) return false;
+  try{
+    const { rows: [ adventurer ] } = await client.query(`
+    SELECT * FROM adventurers
+    WHERE username = $1;
+  `, [username]);
+    if(!adventurer) return false;
+    delete adventurer.password
+    return adventurer
+  }catch(err){
+    throw err;
+  }
+  
+
+}
+
 // const test = async() =>{
 //   client.connect()
-//   console.log(await createNewAdventurer('test', 'test', 'teest@test', 'test', 'test', true, false));
+//   console.log(await getAdventurerByUsernameAndPassword('tet', 'test'));
 //   client.end()
 // }
 // test()
