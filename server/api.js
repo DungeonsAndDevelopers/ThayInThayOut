@@ -1,6 +1,8 @@
 const express =  require('express');
 const apiRouter = express.Router();
+const spellsRouter = require('./spells')
 
-console.log('hit apiRouter');
+apiRouter.use('/spells', spellsRouter);
+
 
 module.exports = apiRouter;

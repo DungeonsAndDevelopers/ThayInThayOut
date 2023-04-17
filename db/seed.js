@@ -3,8 +3,7 @@ const client = require('./client');
 const createSpellList = require('./spellAjax');
 
 const {
-  createNewSpell
-
+  createNewSpell,
 } = require('.');
 // const { default: createSpellList } = require('./spellAjax');
 
