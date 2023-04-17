@@ -37,6 +37,8 @@ const buildTables = async() => {
                          description TEXT,
                          range VARCHAR(15),
                          is_active BOOLEAN NOT NULL);
+    CREATE TABLE schools( id SERIAL PRIMARY KEY,
+                          name VARCHAR(25))
   `)
   console.log('FINISHED BUILDING TABLES');
 }
