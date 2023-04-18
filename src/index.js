@@ -1,51 +1,21 @@
 import React, { useEffect, useState } from 'react'; 
 import { createRoot } from "react-dom/client";
 import { HashRouter, Routes, Route } from 'react-router-dom'
-import Header from './header';
-const App = () => { };
+import Header from './Components/header';
 
 
+const App = () => { ;
 
-
-useEffect = (() => {
-
-
-    return (
-        <>
-        <Header/>
-    
-        <Routes>
-    
-            <Route 
-                path="/" 
-                element={
-                    <Home/>
-            }/>
-    
-            <Route 
-                path="/login" 
-                element={
-                    <LogIn/>
-            }/>
-    
-        </Routes>
-    
-        </>
+return (
+	<div>
+		<h1>TEST</h1>
+	</div>
     )
-
-})
-
-
-
-
+}
+	const container =  document.getElementById('app')
+	const root = createRoot(container);
+	root.render(<App />)
 
 
 
 
-const appElement = document.getElementById("app")
-const root = createRoot(appElement)
-root.render(
-<HashRouter>
-    <App/>
-</HashRouter>
-    )
