@@ -11,6 +11,7 @@ const {
 const dropTables = async() =>{
   console.log('DROPPING TABLES');
   await client.query(`
+    DROP TABLE IF EXISTS cart;
     DROP TABLE IF EXISTS adventurers;
     DROP TABLE IF EXISTS spells;
   `);
@@ -36,8 +37,13 @@ const buildTables = async() => {
                          description TEXT,
                          range VARCHAR(15),
                          is_active BOOLEAN NOT NULL);
+    CREATE TABLE cart ( id SERIAL PRIMARY KEY,
+                        "adventurerId" INTEGER REFERENCES adventurers(id),
+                        "spellId" INTEGER REFERENCES spells(id),
+                        quantity INTEGER,
+                        "isActive" BOOLEAN DEFAULT true);
     CREATE TABLE schools( id SERIAL PRIMARY KEY,
-                          name VARCHAR(25))
+                          name VARCHAR(25));
   `)
   console.log('FINISHED BUILDING TABLES');
 }
