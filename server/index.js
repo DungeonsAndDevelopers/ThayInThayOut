@@ -5,6 +5,9 @@ const morgan = require('morgan');
 const path = require('path');
 const apiRouter = require('./api');
 
+server.use('/dist', express.static(path.join(__dirname, "../dist")));
+server.get('/', (req, res, next)=> res.sendFile(path.join(__dirname, '../public', 'index.html')))
+
 server.use(morgan('dev'));
 server.use('/api', apiRouter)
 
