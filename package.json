@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "db:seed": "node db/seed",
-    "server-dev": "nodemon server/index",
-    "test": "jest"
+    "server-dev": "nodemon server/index"
   },
   "keywords": [],
   "author": "",
