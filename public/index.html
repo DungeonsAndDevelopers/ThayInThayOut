@@ -11,8 +11,73 @@
 <body>
     
     <style>
+        *{
+            box-sizing: border-box;
+        }
+        :root{
+            --deeper-red: #CD5B5C;
+            --faded-red: rgba(205, 91, 92, 0.5)
+        }
+
+        body{
+            background-image: url("https://cdn.discordapp.com/attachments/1095734190189838457/1098271899718529034/maple_tea_texture_by_shadsie_d1w2jm0-fullview.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        button:focus{
+            outline:none;
+        }
+
+        .header:hover{
+            cursor: pointer;
+            color: var(--faded-red);
+            
+        }
+
+        .header-dropdown {
+            background-color: transparent;
+             border: none;
+             padding: 0;
+            }
+
+        .header-dropdown:hover{
+            cursor: pointer;
+            outline: 2px solid lightcoral;
+            outline-offset: 2px;
+        }
+        .faded-red-border:hover{
+            cursor: pointer;
+            border: 2px solid var(--faded-red);
+        }
+        .dim:hover{
+            cursor: pointer;
+            border-color: var(--faded-red);
+        }
         img{
             width: 10%;
+        }
+        .width-fit-content{
+            width: fit-content;
+        }
+
+        .logo-hover-state:hover{
+            cursor: pointer;
+            color: var(--faded-red)
+        }
+
+        .margin-zero{
+            padding: 0;
+        }
+        .deeper-red-bg{
+            background-color: var(--deeper-red);
+        }
+
+        .deeper-red-border{
+            border: 2px solid var(--deeper-red)
+        }
+        .border-box{
+            box-sizing: border-box;
         }
     </style>
 
