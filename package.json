@@ -7,7 +7,8 @@
     "db:seed": "node db/seed",
     "server-dev": "nodemon server/index",
     "build-dev": "webpack -w  --mode=development",
-    "build": "webpack --mode=development"
+    "build": "webpack --mode=development",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

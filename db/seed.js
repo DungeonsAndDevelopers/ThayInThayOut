@@ -38,9 +38,9 @@ const buildTables = async() => {
                          range VARCHAR(15),
                          is_active BOOLEAN NOT NULL);
     CREATE TABLE cart ( id SERIAL PRIMARY KEY,
-                        "adventurerId" INTEGER REFERENCES adventurers(id),
-                        "spellId" INTEGER REFERENCES spells(id),
-                        quantity INTEGER,
+                        "adventurerId" INTEGER REFERENCES adventurers(id) NOT NULL,
+                        "spellId" INTEGER REFERENCES spells(id) NOT NULL,
+                        quantity INTEGER DEFAULT 1,
                         "isActive" BOOLEAN DEFAULT true);
     CREATE TABLE schools( id SERIAL PRIMARY KEY,
                           name VARCHAR(25));
