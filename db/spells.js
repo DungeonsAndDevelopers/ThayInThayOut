@@ -15,7 +15,6 @@ const createNewSpell = async(name, school, baseLevel, castingTime, description,
   
 }
 
-
 const getAllSpells = async() =>{
   try{
   const { rows: spells } = await client.query(`
