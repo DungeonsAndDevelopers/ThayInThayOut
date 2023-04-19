@@ -19,10 +19,10 @@ spellsRouter.get('/', async(req, res, next) =>{
   res.send(output)
 })
 
-spellsRouter.get('/api/spells/singleSpell', singleSpellRoute, async(req, res, next) => {
-  res.send({
-    message: "this route is healthy"
-  })
-})
+// spellsRouter.get('/api/spells/singleSpell', singleSpellRoute, async(req, res, next) => {
+//   res.send({
+//     message: "this route is healthy"
+//   })
+// })
 
 module.exports = spellsRouter;
