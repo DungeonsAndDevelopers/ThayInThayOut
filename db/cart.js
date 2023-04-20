@@ -1,7 +1,7 @@
 const client = require('./client')
 
 //Add item to cart
-const addItemToCart = async (spellId) => {
+const addItemToCart = async (spellId, adventurerId) => {
 }
 
 //get cart by adventurer id
@@ -12,7 +12,7 @@ const getCartByAdventurerId = async (adventurerId) => {
 
 //updated quantity in cart
 
-const updateCartQuantity = async (spellId, quantity) => {
+const updateCartQuantity = async (cartId, spellId, quantity) => {
 
 }
 
