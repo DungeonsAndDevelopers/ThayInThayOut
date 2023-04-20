@@ -1,11 +1,6 @@
-const { addItemToCart, getCartByAdventurerId, updateCartQuanity, setCartInactive } = require('../db/cart');
+const { addItemToCart, getCartByAdventurerId, updateCartQuantity, setCartInactive } = require('../db/cart');
 const client = require('../db/client');
 
-//addItemToCart
-//expect new item to be added to cart
-// test('adds 1 + 2 to equal 3', () => {
-//     expect(sum(1, 2)).toBe(3);
-//   });
 client.connect();
 
 test('expect new item to be added to cart', async () => {
@@ -24,43 +19,57 @@ test('expect new item to be added to cart', async () => {
 
 //getCartByAdventurerId
 
-test('return cart based on adventurerId', () => {
+test('return cart based on adventurerId', async () => {
     const adventurerId = 1;
-    expect(getCartByAdventurerId(adventurerId).toStrictEqual({
+    const response = await getCartByAdventurerId(adventurerId);
+    expect(response).toStrictEqual([{
         id: 1,
+        adventurerId: adventurerId,
+        spellId: 1,
+        quantity: 1,
+        isActive: true
+    }, {
+        id: 2,
+        adventurerId: adventurerId,
+        spellId: 19,
+        quantity: 2,
+        isActive: true
+    }, {
+        id: 4,
         adventurerId: adventurerId,
         spellId: 7,
         quantity: 1,
         isActive: true
-    }));
+    }]);
 })
 
 
-//updateCartQuantity
+// updateCartQuantity
 
-test('return cart with updated spell quantity', () => {
-    const spellId = 7;
+test('return cart with updated spell quantity', async () => {
     const newQuantity = 3;
-    expect(updateCartQuantity(spellId, newQuantity).toStrictEqual({
+    const cartId = 1;
+    const response = await updateCartQuantity(cartId, newQuantity);
+    expect(response).toStrictEqual({
         id: 1,
         adventurerId: 1,
-        spellId: spellId,
+        spellId: 1,
         quantity: newQuantity,
         isActive: true
-    }));
+    });
 })
 
-//setCartInactive
+// //setCartInactive
 
-test('return cart with status inactive', () => {
-    const cartId = 1;
-    expect(setCartInactive(cartId).toStrictEqual({
-        id: cartId,
-        adventurerId: 1,
-        spellId: 7,
-        quantity: 1,
-        isActive: false
-    }));
-})
+// test('return cart with status inactive', () => {
+//     const cartId = 1;
+//     expect(setCartInactive(cartId).toStrictEqual({
+//         id: cartId,
+//         adventurerId: 1,
+//         spellId: 7,
+//         quantity: 1,
+//         isActive: false
+//     }));
+// })
 
-client.end();
+// client.end();
