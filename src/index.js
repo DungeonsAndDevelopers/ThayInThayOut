@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from "react-dom/client";
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './Components/header';
+import singleSpell from "./Components/singleProduct"
 
 
 const App = () => { ;
