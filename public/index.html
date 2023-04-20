@@ -13,6 +13,8 @@
     <style>
         *{
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         :root{
             --deeper-red: #CD5B5C;
@@ -65,10 +67,6 @@
             cursor: pointer;
             color: var(--faded-red)
         }
-
-        .margin-zero{
-            padding: 0;
-        }
         .deeper-red-bg{
             background-color: var(--deeper-red);
         }
@@ -79,6 +77,36 @@
         .border-box{
             box-sizing: border-box;
         }
+
+        .product-card{
+            width: 150px;
+            border: 2px solid
+        }
+
+        .product-card:hover{
+            border-color: var(--faded-red);
+        }
+
+        .product-image{
+            width: 100%;
+        }
+
+        .margin-top-20{
+            margin-top: 20px ;
+        }
+        .pointer:hover{
+            cursor: pointer;
+        }
+        .fit-content{
+            width: fit-content !important;
+        }
+        
+        .white-border:hover{
+            box-shadow: 2px 2px 2px var(--deeper-red);
+            border-color: #f0f0f0;
+        }
+
+
     </style>
 
     <div id="app"></div>
