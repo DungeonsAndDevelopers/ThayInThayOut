@@ -84,15 +84,44 @@ const createSchools = async () => {
   console.log('SCHOOLS CREATED');
 }
 
+const createCarts = async () => {
+  console.log('CREATING CARTS');
+  const {rows: [edgin]} = await client.query(`
+    SELECT id FROM adventurers 
+    WHERE first_name = 'Edgin';
+  `);
+  const {rows: [holga]} = await client.query(`
+    SELECT id FROM adventurers 
+    WHERE first_name = 'Holga';
+  `);
+  const {rows: [acidArrow]} =  await client.query(`
+    SELECT id FROM spells
+    WHERE name = 'Acid Arrow';
+  `);
+  const {rows: [clone]} = await client.query(`
+    SELECT id FROM spells
+    WHERE name = 'Clone';
+  `)
+  await client.query(`
+    INSERT INTO cart ("adventurerId", "spellId", quantity)
+    VALUES
+    (${edgin.id}, ${acidArrow.id}, 1),
+    (${edgin.id}, ${clone.id}, 2),
+    (${holga.id}, ${clone.id}, 1);
+  `);
+  console.log('CARTS CREATED');
+}
+
 const seedDb = async() =>{
   console.log('CONNECTING TO DB');
   client.connect();
   console.log('FINISHED CONNECTING TO DB')
   await dropTables();
   await buildTables();
-  // await createNewSpells();
+  await createNewSpells();
   await createAdventurers();
   await createSchools();
+  await createCarts();
   console.log('DISCONNECTING FROM DB')
   client.end();
   console.log('CONNECTION TO DB CLOSED');
