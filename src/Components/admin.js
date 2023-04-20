@@ -1,9 +1,8 @@
 import React, { useState } from 'react' 
 
-console.log("HEY YOU GUYS")
 
 
-admin = () => {
+const Admin = () => {
     return (
         <div>
             <input id="searchAdventurerInput" placeholder="Search Adventurers"></input>
@@ -34,4 +33,4 @@ admin = () => {
     )
 };
 
-export default admin;
+export default Admin;

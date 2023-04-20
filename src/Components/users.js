@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 
 
-user = () => {
+const User = () => {
     return(
         <div>
             <span>Username Displays HERE</span>
@@ -29,4 +29,4 @@ user = () => {
     )
 }
 
-export default user
+export default User
