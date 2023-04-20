@@ -4,7 +4,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './Components/header';
 import singleSpell from "./Components/singleProduct"
 
-
+import cart from "./Components/cart"
 const App = () => { ;
 
 return (
