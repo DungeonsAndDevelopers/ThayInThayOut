@@ -3,8 +3,8 @@ import { createRoot } from "react-dom/client";
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './Components/header';
 import singleSpell from "./Components/singleProduct"
-
 import cart from "./Components/cart"
+import admin from './Components/admin';
 const App = () => { ;
 
 return (
