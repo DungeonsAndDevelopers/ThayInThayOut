@@ -59,17 +59,18 @@ test('return cart with updated spell quantity', async () => {
     });
 })
 
-// //setCartInactive
+//setCartInactive
 
-// test('return cart with status inactive', () => {
-//     const cartId = 1;
-//     expect(setCartInactive(cartId).toStrictEqual({
-//         id: cartId,
-//         adventurerId: 1,
-//         spellId: 7,
-//         quantity: 1,
-//         isActive: false
-//     }));
-// })
+test('return cart with status inactive', async () => {
+    const cartId = 1;
+    const response = await setCartInactive(cartId);
+    expect(response).toStrictEqual({
+        id: cartId,
+        adventurerId: 1,
+        spellId: 1,
+        quantity: 3,
+        isActive: false
+    });
+})
 
 // client.end();

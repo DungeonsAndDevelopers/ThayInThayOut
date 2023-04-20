@@ -54,6 +54,17 @@ const updateCartQuantity = async (cartId, quantity) => {
 //set cart inactive
 
 const setCartInactive = async (cartId) => {
+    try {
+        const {rows: [cart] } = await client.query(`
+            UPDATE cart
+            SET "isActive" = false
+            WHERE id = $1
+            RETURNING *;
+        `, [cartId]);
+        return cart;
+    } catch (error) {
+        throw error;
+    }
 
 }
 
