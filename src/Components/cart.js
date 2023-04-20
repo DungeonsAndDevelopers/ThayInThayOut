@@ -14,6 +14,7 @@ const cart = () => {
                     I AM A CART ITEM 
                 </li>
             </ol>
+            <span>Cart Subtotal goes HERE</span>
             <div id="checkoutButtonDiv">
                 <button id="checkoutButton">CHECKOUT BUTTON</button>
             </div>
