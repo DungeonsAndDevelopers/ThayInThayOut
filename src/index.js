@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './Components/header';
 
-
+import cart from "./Components/cart"
 const App = () => { ;
 
 return (
