@@ -1,6 +1,6 @@
 const express = require('express');
 const spellsRouter = express.Router();
-const { getAllSpells } = require('../db/spells')
+const { getAllSpells, getSingleSpellById } = require('../db/spells')
 
 spellsRouter.get('/', async(req, res, next) =>{
   const output = {
@@ -19,10 +19,21 @@ spellsRouter.get('/', async(req, res, next) =>{
   res.send(output)
 })
 
-// spellsRouter.get('/api/spells/singleSpell', singleSpellRoute, async(req, res, next) => {
-//   res.send({
-//     message: "this route is healthy"
-//   })
-// })
+spellsRouter.get('/:singleSpellsId', async(req, res, next) => {
+  const singleSpellsId = req.params.singleSpellsId
+  const output = {
+    success : false, 
+    error : null, 
+    spell : null
+  }
+  try {
+    const spell = await getSingleSpellById(singleSpellsId);
+    output.spell = spell;
+    output.success = true;
 
+  }catch(err){
+    output.error = err;
+  }
+  res.send(output)
+})
 module.exports = spellsRouter;
