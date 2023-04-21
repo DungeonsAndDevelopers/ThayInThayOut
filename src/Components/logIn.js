@@ -11,3 +11,7 @@ const logIn = () => {
         </div>
     )
 }
+
+
+
+export default logIn;
