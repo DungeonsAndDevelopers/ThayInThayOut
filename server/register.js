@@ -3,11 +3,12 @@ const registerRouter = express.Router();
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = process.env;
 const bcrypt = require("bcrypt");
+const { getAdventurersByUsername, createNewAdventurer } = require('../db/adventurers');
 
 //POST /api/register
 
 registerRouter.post('/', async (req, res, next) => {
-    const { first_name, last_name, email_address, username, password, confirmPassword } = req.body;
+    const { firstName, lastName, emailAddress, username, password, confirmPassword } = req.body;
     if(password.length < 8) {
         res.send({
             error: "PasswordTooShort",
@@ -25,7 +26,21 @@ registerRouter.post('/', async (req, res, next) => {
         });
     } else {
         try {
-            const adventurerCheck = await getAdventurersByUserName(username);
+            const adventurerCheck = await getAdventurersByUsername(username);
+            if(adventurerCheck) {
+                res.send({
+                    error: "UserAlreadyExists",
+                    message: "An adventurer with that username already exists"
+                });
+            } else {
+                const result = await createNewAdventurer(firstName, lastName, emailAddress, username, password, true, false);
+                const token = jwt.sign({id: result.id, username: result.username}, JWT_SECRET);
+                res.send({
+                    message: "Registration successful",
+                    token: token,
+                    adventurer: result
+                });
+            }
             
         } catch (error) {
             next(error);
