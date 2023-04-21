@@ -29,7 +29,7 @@ const AllSpells = () =>{
                 <img className='product-image border border-dark rounded' src= 'https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp'/>
                 <p className='mt-2 text-center'>{spell.name}</p>
                 <p className=''>{(spell.base_level * 100) + 50 }gp</p>
-                <button className='w-75 white-border'>Add To Cart</button>
+                <button className='w-75 red-border rounded bg-ivory'>Add To Cart</button>
               </div>
             )
           })

@@ -1,6 +1,6 @@
 import React, { useState } from 'react' 
 
-const cart = () => {
+const Cart = () => {
     return (
         <div id="cart">
             <ol class ="cartList">
@@ -23,4 +23,4 @@ const cart = () => {
 }
 
 
-export default cart
+export default Cart

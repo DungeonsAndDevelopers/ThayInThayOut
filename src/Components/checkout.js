@@ -1,6 +1,7 @@
 import React, { useState } from 'react' 
+import { checkout } from '../../server/spells'
 
-checkout = () => {
+const Checkout = () => {
     return (
         <div>
             <h2>Checkout</h2>
@@ -67,3 +68,5 @@ checkout = () => {
         </div>
     )
 }
+
+export default Checkout
