@@ -6,6 +6,7 @@ import SingleSpell from './Components/singleSpell';
 import Cart from "./Components/cart";
 import Admin from './Components/admin';
 import User from './Components/users';
+import logIn from './Components/logIn';
 const App = () => { ;
 
 return (
