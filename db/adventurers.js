@@ -1,5 +1,5 @@
 const client = require("./client")
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 
 const createNewAdventurer = async(firstName, lastName, emailAddress, username,
@@ -38,10 +38,28 @@ const getAdventurerByUsernameAndPassword = async(username, password) =>{
   }
 }
 
+const getAdventurerByUsername = async(username) => {
+  try {
+    const {rows: [adventurer] } = await client.query(`
+      SELECT * FROM adventurers
+      WHERE username = $1;
+    `, [username]);
+    return adventurer;
+  } catch (error) {
+    throw(error);
+  }
+}
+
+module.export = {
+  createNewAdventurer,
+  getAdventurerByUsernameAndPassword,
+  getAdventurerByUsername
+}
+
 
 // const test = async() =>{
 //   client.connect()
-//   console.log(await getAdventurerByUsernameAndPassword('4', 'password'));
+//   console.log(await getAdventurerByUsername('edgind'));
 //   client.end()
 // }
 // test()
