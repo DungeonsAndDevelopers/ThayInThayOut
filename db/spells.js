@@ -40,15 +40,28 @@ const getSingleSpellById = async(spellId) =>{
   }
 }
 
+const getSpellsBySchool = async(school) => {
+  try {
+    const {rows: spells} = await client.query(`
+      SELECT * FROM spells
+      WHERE school = $1;
+    `, [school]);
+    return spells;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports ={
   createNewSpell,
   getAllSpells,
-  getSingleSpellById
+  getSingleSpellById,
+  getSpellsBySchool
 }
 
 // const test = async() =>{
 //   client.connect()
-//   console.log(await getSingleSpellById(1));
+//   console.log(await getSpellsBySchool("Divination"));
 //   client.end()
 // }
 // test()
