@@ -1,5 +1,5 @@
 const client = require("./client")
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 
 const createNewAdventurer = async(firstName, lastName, emailAddress, username,
@@ -50,7 +50,7 @@ const getAdventurerByUsername = async(username) => {
   }
 }
 
-module.export = {
+module.exports = {
   createNewAdventurer,
   getAdventurerByUsernameAndPassword,
   getAdventurerByUsername
