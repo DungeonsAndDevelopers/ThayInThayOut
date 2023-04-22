@@ -48,3 +48,7 @@ registerRouter.post('/', async (req, res, next) => {
     }
 
 })
+
+module.exports = registerRouter;
+
+// curl http://localhost:3000/api/register -X POST -H "Content-Type: application/json" -d '{"firstName": "Elmister", "lastName": "TheWizard", "emailAddress": "elminster@dnd.com", "username": "ellie", "password": "letscastspells", "confirmPassword": "letscastspells"}'
