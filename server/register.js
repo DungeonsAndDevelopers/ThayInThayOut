@@ -1,9 +1,10 @@
 const express = require('express');
 const registerRouter = express.Router();
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = process.env;
 const bcrypt = require("bcrypt");
-const { getAdventurersByUsername, createNewAdventurer } = require('../db/adventurers');
+const { getAdventurerByUsername, createNewAdventurer } = require('../db/adventurers');
 
 //POST /api/register
 
@@ -26,7 +27,7 @@ registerRouter.post('/', async (req, res, next) => {
         });
     } else {
         try {
-            const adventurerCheck = await getAdventurersByUsername(username);
+            const adventurerCheck = await getAdventurerByUsername(username);
             if(adventurerCheck) {
                 res.send({
                     error: "UserAlreadyExists",
@@ -50,5 +51,3 @@ registerRouter.post('/', async (req, res, next) => {
 })
 
 module.exports = registerRouter;
-
-// curl http://localhost:3000/api/register -X POST -H "Content-Type: application/json" -d '{"firstName": "Elmister", "lastName": "TheWizard", "emailAddress": "elminster@dnd.com", "username": "ellie", "password": "letscastspells", "confirmPassword": "letscastspells"}'
