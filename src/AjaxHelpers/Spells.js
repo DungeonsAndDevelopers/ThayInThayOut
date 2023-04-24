@@ -20,4 +20,14 @@ export const fetchSingleSpell = async(spellId, setter) =>{
   }
 }
 
+export const fetchAllSpellsBySchool = async(schoolName, setter) =>{
+  try{
+    const response = await fetch(`api/spells/school/${schoolName}`);
+    const results = await response.json();
+    setter(results.spell);
+  }catch(err){
+    throw(err);
+  }
+}
+
 export default fetchAllSpellsFE
