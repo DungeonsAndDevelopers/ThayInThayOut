@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import banner from '../../images/banner.jpg';
+import { fetchAllSpellsBySchool } from '../AjaxHelpers/Spells'; 
 
 const BannerAd = () => {
     return (
@@ -9,21 +10,24 @@ const BannerAd = () => {
     );
 }
 
-const PopularSpells = () => {
-    // const getPopularSpells = async (school) => {
-    //     try {
-    //         const result = await getSpellsBySchool(school);
-    //         console.log(result);
-    //     } catch (error) {
-    //         throw error;
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     getPopularSpells("Divination");
-    // }, []);
+const PopularSpells = (props) => {
+    const [spells, setSpells] = useState([]);
+    useEffect(() => {
+        fetchAllSpellsBySchool(props.school, setSpells);
+    }, []);
     return (
+        <div id="popular-spells">
         <h1>Popular Spells Go Here</h1>
+        {spells.map((spell => {
+            return (
+                <div className='single-spell'>
+                    <img src='https://picsum.photos/200'></img>
+                    <p className='spell-name'>spell.name</p>
+                    <p className='spell-price'>500gp</p>
+                </div>
+            )
+        })) }
+        </div>
     );
 };
 
@@ -37,7 +41,7 @@ const Home = () => {
     return (
         <div>
             <BannerAd />
-            <PopularSpells />
+            <PopularSpells school = "Divination" />
             <SpellSchools />
         </div>
     );

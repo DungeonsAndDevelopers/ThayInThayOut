@@ -24,7 +24,7 @@ export const fetchAllSpellsBySchool = async(schoolName, setter) =>{
   try{
     const response = await fetch(`api/spells/school/${schoolName}`);
     const results = await response.json();
-    setter(results.spell);
+    setter(results.spells);
   }catch(err){
     throw(err);
   }
