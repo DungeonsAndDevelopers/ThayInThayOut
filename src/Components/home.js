@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import banner from '../../images/banner.jpg';
 
 const BannerAd = () => {
     return (
-        <div id='banner'>
-            <img src='https://cdn.discordapp.com/attachments/1095734190189838457/1099390527654334566/bannder.png'></img>
+        <div className='banner'>
+            <img id="home-banner" src={banner}></img>
         </div>
     );
 }
