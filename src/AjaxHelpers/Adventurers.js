@@ -20,5 +20,22 @@ const registerNewAdventurer = async(firstName, lastName, username, password, con
     })
 
   })
+}
 
+const loginAdventurer = (username, password) =>{
+  fetch(`api/login`,{
+    method: "POST",
+    headers:{
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify({
+      username,
+      password
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log(result)
+    })
+  
+  })
 }
