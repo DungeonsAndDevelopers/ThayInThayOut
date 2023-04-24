@@ -1,8 +1,10 @@
-import React, { useState } from 'react' 
+import React, { useState } from 'react';
 
 const BannerAd = () => {
     return (
-        <h1>Banner Image Goes Here</h1>
+        <div id='banner'>
+            <img src='https://cdn.discordapp.com/attachments/1095734190189838457/1099390527654334566/bannder.png'></img>
+        </div>
     );
 }
 
