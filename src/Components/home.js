@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import banner from '../../images/banner.jpg';
 
 const BannerAd = () => {
@@ -10,6 +10,18 @@ const BannerAd = () => {
 }
 
 const PopularSpells = () => {
+    // const getPopularSpells = async (school) => {
+    //     try {
+    //         const result = await getSpellsBySchool(school);
+    //         console.log(result);
+    //     } catch (error) {
+    //         throw error;
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     getPopularSpells("Divination");
+    // }, []);
     return (
         <h1>Popular Spells Go Here</h1>
     );
