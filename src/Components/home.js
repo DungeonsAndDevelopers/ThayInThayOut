@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import banner from '../../images/banner.jpg';
 import { fetchAllSpellsBySchool } from '../AjaxHelpers/Spells'; 
-import {fetchAll}
+import fetchAllSchools from '../AjaxHelpers/schools';
 
 const BannerAd = () => {
     return (
@@ -21,7 +21,7 @@ const PopularSpells = (props) => {
         <h2>Popular Spells</h2>
         {spells.map((spell => {
             return (
-                <div className='single-spell'>
+                <div key={spell.id} className='single-spell'>
                     <img src='https://picsum.photos/200'></img>
                     <p className='spell-name'>{spell.name}</p>
                     <p className='spell-price'>500gp</p>
@@ -33,12 +33,24 @@ const PopularSpells = (props) => {
 };
 
 const SpellSchools = () => {
-    const [schools, schoolsSetter] = useState([]);
+    const [schools, setSchools] = useState([]);
     useEffect(() => {
-
-    })
+        fetchAllSchools(setSchools);
+    }, []);
     return (
-        <h1>Spell Schools Go Here</h1>
+    <div id="spell-schools">
+        <h2>Browse Spells By School</h2>
+        {
+            schools.map((school => {
+                return (
+                    <div key={school.id} className='spell-school'>
+                        <img src='https://picsum.photos/200'></img>
+                        <p>{school.name}</p>
+                    </div>
+                )
+            }))
+        }
+    </div>
     );
 };
 

@@ -14,7 +14,7 @@ const App = () => { ;
 return (
 	<div>
 		<Header />
-		<Registration/>
+		<Home />
 	</div>
     )
 }

@@ -1,6 +1,6 @@
 const fetchAllSchools = async (setter) => {
     try {
-        const response = fetch('/api/schools');
+        const response = await fetch('/api/schools');
         const result = await response.json();
         setter(result);
         
