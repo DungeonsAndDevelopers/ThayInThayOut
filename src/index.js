@@ -8,12 +8,13 @@ import Cart from "./Components/cart";
 import Admin from './Components/admin';
 import User from './Components/users';
 import logIn from './Components/logIn';
-const App = () => {
+import Registration from './Components/registration';
+const App = () => { ;
 
 return (
 	<div>
 		<Header />
-		<Home />
+		<Registration/>
 	</div>
     )
 }
