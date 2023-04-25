@@ -11,6 +11,16 @@ const schoolTable = async (name) => {
         throw err;
     }
 }
-module.exports = {
-    schoolTable
+
+const getAllSchools = async () => {
+    const { rows } = await client.query(`
+        SELECT * FROM schools;
+    `);
+    return rows;
 }
+
+module.exports = {
+    schoolTable,
+    getAllSchools
+}
+
