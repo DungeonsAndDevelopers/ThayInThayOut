@@ -1,6 +1,4 @@
-const registerNewAdventurer = async(firstName, lastName, username, password, confirmPassword, emailAddress) =>{
-
- 
+const registerNewAdventurer = async(firstName, lastName, username, password, confirmPassword, emailAddress, setter, classSetter, nav) =>{ 
   fetch(`/api/register/`,{
     method: "POST",
     headers:{
@@ -14,15 +12,21 @@ const registerNewAdventurer = async(firstName, lastName, username, password, con
       confirmPassword,
       emailAddress
     })
-    .then(response => response.json())
-    .then(result => {
-      console.log(result)
+    
     })
+    .then(response =>response.json())
+    .then(result => {
+      setter(result.message);
+      if(!result.error){
+         classSetter('text-success');
+         window.localStorage.setItem('advToken', result.token)
+        //  nav('/');
+        }
+      else classSetter('text-danger');
+  }).catch(console.error)
+};
 
-  })
-}
-
-const loginAdventurer = (username, password) =>{
+export const loginAdventurer = (username, password) =>{
   fetch(`api/login`,{
     method: "POST",
     headers:{
@@ -38,4 +42,6 @@ const loginAdventurer = (username, password) =>{
     })
   
   })
-}
+};
+
+export default registerNewAdventurer

@@ -10,7 +10,13 @@ const { getAdventurerByUsername, createNewAdventurer } = require('../db/adventur
 
 registerRouter.post('/', async (req, res, next) => {
     const { firstName, lastName, emailAddress, username, password, confirmPassword } = req.body;
-    if(password.length < 8) {
+    if (!username || !password || !confirmPassword) {
+        res.send({
+            error: "IncompleteForm",
+            message: "A username, password, and password confirmation are required"
+        });
+    }
+    else if(password.length < 8) {
         res.send({
             error: "PasswordTooShort",
             message: "Passwords must be at least 8 characters long"
@@ -19,11 +25,6 @@ registerRouter.post('/', async (req, res, next) => {
         res.send({
             error: "PasswordDoesNotMatch",
             message: "Password and Confirm Password do not match"
-        });
-    } else if (!username || !password || !confirmPassword) {
-        res.send({
-            error: "IncompleteForm",
-            message: "A username, password, and password confirmation are required"
         });
     } else {
         try {
