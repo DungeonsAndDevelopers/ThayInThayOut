@@ -7,7 +7,7 @@ import SingleSpell from './Components/singleSpell';
 import Cart from "./Components/cart";
 import Admin from './Components/admin';
 import User from './Components/users';
-import logIn from './Components/logIn';
+import Login from './Components/logIn';
 import Registration from './Components/registration';
 const App = () => { ;
 
