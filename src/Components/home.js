@@ -17,12 +17,12 @@ const PopularSpells = (props) => {
     }, []);
     return (
         <div id="popular-spells">
-        <h1>Popular Spells Go Here</h1>
+        <h2>Popular Spells</h2>
         {spells.map((spell => {
             return (
                 <div className='single-spell'>
                     <img src='https://picsum.photos/200'></img>
-                    <p className='spell-name'>spell.name</p>
+                    <p className='spell-name'>{spell.name}</p>
                     <p className='spell-price'>500gp</p>
                 </div>
             )
