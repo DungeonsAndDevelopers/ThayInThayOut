@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from "react-dom/client";
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './Components/header';
+import Home from './Components/home';
 import SingleSpell from './Components/singleSpell';
 import Cart from "./Components/cart";
 import Admin from './Components/admin';
@@ -13,7 +14,7 @@ const App = () => { ;
 return (
 	<div>
 		<Header />
-		<Registration/>
+		<Home />
 	</div>
     )
 }
