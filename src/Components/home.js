@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import banner from '../../images/banner.jpg';
 import { fetchAllSpellsBySchool } from '../AjaxHelpers/Spells'; 
+import {fetchAll}
 
 const BannerAd = () => {
     return (
@@ -32,6 +33,10 @@ const PopularSpells = (props) => {
 };
 
 const SpellSchools = () => {
+    const [schools, schoolsSetter] = useState([]);
+    useEffect(() => {
+
+    })
     return (
         <h1>Spell Schools Go Here</h1>
     );
