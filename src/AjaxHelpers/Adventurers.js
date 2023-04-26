@@ -43,6 +43,7 @@ export const loginAdventurer = (username, password, setter, classSetter) =>{
       if(!result.error){
         classSetter('text-success');
         window.localStorage.setItem('advToken', result.token);
+        nav('/')
       }
       else classSetter('text-danger');
     }).catch(console.error);
