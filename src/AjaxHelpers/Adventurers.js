@@ -20,7 +20,7 @@ const registerNewAdventurer = async(firstName, lastName, username, password, con
       if(!result.error){
          classSetter('text-success');
          window.localStorage.setItem('advToken', result.token)
-        //  nav('/');
+         nav('/');
         }
       else classSetter('text-danger');
   }).catch(console.error)
@@ -47,3 +47,5 @@ export const loginAdventurer = (username, password, setter, classSetter) =>{
       else classSetter('text-danger');
     }).catch(console.error);
 };
+
+export default registerNewAdventurer
