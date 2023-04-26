@@ -20,6 +20,23 @@ cartRouter.get('/:adventurerId', async(req, res, next)=>{
   }
   res.send(output)
 })
+cartRouter.post('/addToCart/:adventurerId', async(req, res, next) => {
+    const adventurerId = req.params.adventurerId;
+    const output = {
+        success : false,
+        error : null,
+        cart : null
+    }
+    try{
+        const cart =  await addItemToCart(req.body.spellId, adventurerId);
+        output.success = true;
+        
+        
 
+    }catch(err){
+        output.error = err;
+    }
+    res.send(output);
+})
 
 module.exports = cartRouter;
