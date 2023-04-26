@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropDownButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 
 const Header = () =>{
 
@@ -53,7 +53,7 @@ return(
           <div className="dropdown-item">Fire</div>
         </div>
       </div>
-
+      <FontAwesomeIcon className='dim' icon={faCartShopping}/>
     </div>
   </div>
 )
