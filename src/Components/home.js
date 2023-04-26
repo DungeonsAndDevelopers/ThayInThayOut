@@ -25,6 +25,7 @@ const PopularSpells = (props) => {
                     <img src='https://picsum.photos/200'></img>
                     <p className='spell-name'>{spell.name}</p>
                     <p className='spell-price'>500gp</p>
+                    <button>Add To Cart</button>
                 </div>
             )
         })) }

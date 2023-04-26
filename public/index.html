@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thay In Thay Out</title>
     <link rel="icon" href="https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp" alt="Thay Logo">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,8 +20,7 @@
         :root{
             --deeper-red: #CD5B5C;
             --faded-red: rgba(205, 91, 92, 0.5);
-            --light-cream: #F8EDE3;
-            --darkish-cream: #D0B8A8;
+            --light-cream: 	 #FEFFEC;
         }
 
         body{
@@ -65,21 +64,6 @@
         .width-fit-content{
             width: fit-content;
         }
-
-        .height-fit-content{
-            height: fit-content;
-        }
-        .fixed-parent{
-            position: relative;
-        }
-        .fixed-div{
-            position: sticky;
-            top: 9rem
-        }
-
-
-
-     
 
         .logo-hover-state:hover{
             cursor: pointer;
@@ -127,10 +111,6 @@
         .bg-ivory{
             background-color: var(--light-cream);
         }
-
-        .bg-darkish-cream{
-            background-color: var(--darkish-cream);
-        }
         .grey-border{
             border: 2px inset darkgray;
             border-top: 2px inset black;
@@ -145,6 +125,93 @@
             margin-top: 20px;
             margin-bottom: 20px;
             width: initial;
+        }
+
+        #popular-spells {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .single-spell {
+            min-width: 400px;
+            background-color: var(--faded-red);
+            margin: 10px;
+        }
+
+        #popular-spells h2 {
+            width: 100%;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        .single-spell img {
+            display: block;
+            width: 50%;
+            border-radius: 50%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 3%;
+            margin-bottom: 2%;
+        }
+
+        .single-spell button {
+            float: right;
+            margin-bottom: 1em;
+            margin-right: 1em;
+            font-size: 1.5em;
+            padding: 5px;
+            background-color: var(--light-cream);
+            box-shadow: 3px 3px 2px var(--deeper-red);
+            border: none;
+        }
+
+        .single-spell p {
+            margin-left: 5%;
+            font-size: 1.5em;
+        }
+
+        .spell-price {
+            font-size: 1.5em;
+            font-style: italic;
+        }
+
+        #spell-schools {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .spell-school {
+            min-width: 300px;
+            min-height: 300px;
+            background-color: var(--faded-red);
+            margin: 10px;
+            border-radius: 50%;
+        }
+
+        #spell-schools h2 {
+            margin-top: 1em;
+            width: 100%;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        .spell-school img {
+            display: block;
+            width: 50%;
+            border-radius: 50%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 20%;
+            margin-bottom: 2%;
+        }
+
+        .spell-school p {
+            font-size: 1.5em;
+            text-align: center;
         }
 
     </style>
