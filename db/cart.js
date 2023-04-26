@@ -28,7 +28,7 @@ const getCartByAdventurerId = async (adventurerId) => {
                 SELECT * FROM cart
                 WHERE "adventurerId" = $1;
             `, [adventurerId]);
-        return cart;
+        return cart
     } catch (error) {
         throw error;
     }

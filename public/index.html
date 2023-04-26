@@ -20,7 +20,8 @@
         :root{
             --deeper-red: #CD5B5C;
             --faded-red: rgba(205, 91, 92, 0.5);
-            --light-cream: 	 #FEFFEC;
+            --light-cream: #F8EDE3;
+            --darkish-cream: #D0B8A8;
         }
 
         body{
@@ -64,6 +65,21 @@
         .width-fit-content{
             width: fit-content;
         }
+
+        .height-fit-content{
+            height: fit-content;
+        }
+        .fixed-parent{
+            position: relative;
+        }
+        .fixed-div{
+            position: sticky;
+            top: 9rem
+        }
+
+
+
+     
 
         .logo-hover-state:hover{
             cursor: pointer;
@@ -111,11 +127,25 @@
         .bg-ivory{
             background-color: var(--light-cream);
         }
+
+        .bg-darkish-cream{
+            background-color: var(--darkish-cream);
+        }
         .grey-border{
             border: 2px inset darkgray;
             border-top: 2px inset black;
         }
         
+
+        .banner {
+            text-align: center;
+        }
+
+        #home-banner{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: initial;
+        }
 
     </style>
 

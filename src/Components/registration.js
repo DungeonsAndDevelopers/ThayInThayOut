@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-// import { useNavigate } from 'react-router-dom' 
+import { useNavigate } from 'react-router-dom' 
 import registerNewAdventurer from '../AjaxHelpers/Adventurers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 
 const Registration = () =>{
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [ firstNameInput, setFirstNameInput ] = useState('');
   const [ lastNameInput, setLastNameInput ] = useState('');
@@ -23,7 +23,7 @@ const Registration = () =>{
   const handleSumbit = (event) =>{
     event.preventDefault();
     
-    registerNewAdventurer(firstNameInput, lastNameInput, usernameInput, passwordInput, confirmPasswordInput, emailAddressInput, setMessage, setMessageClass, "navigate")
+    registerNewAdventurer(firstNameInput, lastNameInput, usernameInput, passwordInput, confirmPasswordInput, emailAddressInput, setMessage, setMessageClass, navigate)
   }
 
   const handleChange = (event) =>{
