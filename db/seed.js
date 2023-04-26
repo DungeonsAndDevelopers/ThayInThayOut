@@ -1,5 +1,5 @@
 const client = require('./client');
-
+const { createNewAdventurer } = require('./adventurers');
 const createSpellList = require('./spellAjax');
 
 const {
@@ -63,13 +63,17 @@ const createNewSpells = async() =>{
 
 const createAdventurers = async () => {
   console.log('CREATING ADVENTURERS');
-  await client.query(`
-    INSERT INTO adventurers (first_name, last_name, email_address, username, password, is_active, is_admin)
-    VALUES
-      ('Edgin', 'Darvis', 'spoonybard@dnd.com', 'edgind', 'holgaisoutofmyleague', true, true),
-      ('Holga', 'Kilgore', 'iwouldliketorage@dnd.com', 'holgak', 'hulksmash', true, false),
-      ('Forge', 'Fitzwilliam', 'definitelynothughgrant@dnd.com', 'forgef', 'legitbusinessman', true, true);
-  `);
+  //firstName, lastName, emailAddress, username, password, isActive, isAdmin
+  await createNewAdventurer('Edgin', 'Darvis', 'spoonybard@dnd.com', 'edgind', 'holgaisoutofmyleague', true, true);
+  await createNewAdventurer('Holga', 'Kilgore', 'iwouldliketorage@dnd.com', 'holgak', 'hulksmash', true, false);
+  await createNewAdventurer('Forge', 'Fitzwilliam', 'definitelynothughgrant@dnd.com', 'forgef', 'legitbusinessman', true, true);
+  // await client.query(`
+  //   INSERT INTO adventurers (first_name, last_name, email_address, username, password, is_active, is_admin)
+  //   VALUES
+  //     ('Edgin', 'Darvis', 'spoonybard@dnd.com', 'edgind', 'holgaisoutofmyleague', true, true),
+  //     ('Holga', 'Kilgore', 'iwouldliketorage@dnd.com', 'holgak', 'hulksmash', true, false),
+  //     ('Forge', 'Fitzwilliam', 'definitelynothughgrant@dnd.com', 'forgef', 'legitbusinessman', true, true);
+  // `);
   console.log('ADVENTURERS CREATED');
 }
 
