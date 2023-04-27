@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSingleSpell } from '../AjaxHelpers/Spells'; 
-
+import { useParams } from 'react-router-dom';
 
 const SingleSpell = () => {
 
+	let { spellId } = useParams();
+	console.log(spellId)
 	const [ spell, setSpell ] = useState({});
 	useEffect(()=>{
-			fetchSingleSpell(1, setSpell)
+			fetchSingleSpell(spellId, setSpell)
 	},[])
-	console.log(spell)
+	console.log(spellId)
 	return (
 		<div className='p-5 d-flex flex-column align-items-center'>
 				<div className='d-flex justify-content-center m-5' >
