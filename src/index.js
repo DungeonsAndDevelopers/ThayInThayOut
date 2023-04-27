@@ -18,7 +18,7 @@ return (
 		<Routes>
 			<Route path='/' element={<Home />} />
 			<Route path='/spells' element={<AllSpells />}/>
-			<Route path='/spells/:spell' element={<SingleSpell/>} />
+			<Route path='/spells/:spellId' element={<SingleSpell/>} />
 			<Route path='/cart' element={<Cart />}/>
 			<Route path='/admin' element={<Admin/>}/>
 			<Route path='/user/:username' element={<User/>}/>
