@@ -29,12 +29,12 @@ const getCartByAdventurerId = async (adventurerId) => {
 
 }
 
-const test = async() =>{
-  client.connect()
-  console.log(await getCartByAdventurerId(1));
-  client.end()
-}
-test()
+// const test = async() =>{
+//   client.connect()
+//   console.log(await getCartByAdventurerId(1));
+//   client.end()
+// }
+// test()
 //updated quantity in cart
 
 const updateCartQuantity = async (cartId, quantity) => {
