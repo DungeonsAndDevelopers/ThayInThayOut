@@ -23,8 +23,7 @@ const PopularSpells = (props) => {
             return (
                 <div key={spell.id} className='single-spell'>
                     <img src='https://picsum.photos/200'></img>
-                    <p className='spell-name'>{spell.name}</p>
-                    <p className='spell-price'>500gp</p>
+                    <p className='spell-name'>{spell.name}  <em>500gp</em></p>
                     <button>Add To Cart</button>
                 </div>
             )

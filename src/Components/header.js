@@ -12,7 +12,7 @@ return(
      
         <img  src="https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp"
         alt="Thay symbol" className='logo-hover-state' />
-        <h3 className='header m-2'>Thay In, Thay Out</h3>
+        <h1 className='header m-2'>Thay In, Thay Out</h1>
       <Form>
         <input placeholder='search' className='mr-2 faded-red-border' />
       </Form>
