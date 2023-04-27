@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom' 
+import { useNavigate, Link } from 'react-router-dom' 
 import registerNewAdventurer from '../AjaxHelpers/Adventurers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
@@ -78,6 +78,7 @@ const Registration = () =>{
         </div>
           <p className={messageClass} >{message}</p>
         <button className='w-25' >Submit</button>
+        <Link to="/login"> Already Registered? Click Here </Link>
       </form>
     </div>
   )
