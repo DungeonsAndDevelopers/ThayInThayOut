@@ -14,18 +14,12 @@ try{
 }
 }
 
-// const test = async() =>{
-//   client.connect()
-//   console.log(await addItemToCart(1, 1, 1));
-//   client.end()
-// }
-// test()
-//get cart by adventurer id
-
 const getCartByAdventurerId = async (adventurerId) => {
     try {
             const {rows: cart} = await client.query(`
-                SELECT * FROM cart
+                SELECT "adventurerId", spells.name, spells.base_level, "is_active" FROM cart
+                JOIN spells 
+                ON cart."spellId" = spells.id
                 WHERE "adventurerId" = $1;
             `, [adventurerId]);
         return cart
@@ -35,6 +29,12 @@ const getCartByAdventurerId = async (adventurerId) => {
 
 }
 
+const test = async() =>{
+  client.connect()
+  console.log(await getCartByAdventurerId(1));
+  client.end()
+}
+test()
 //updated quantity in cart
 
 const updateCartQuantity = async (cartId, quantity) => {
