@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thay In Thay Out</title>
+    <link rel="stylesheet" href="https://use.typekit.net/tzq6gjt.css">
     <link rel="icon" href="https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp" alt="Thay Logo">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="../dist/main.js" defer></script>
@@ -21,6 +22,14 @@
             --deeper-red: #CD5B5C;
             --faded-red: rgba(205, 91, 92, 0.5);
             --light-cream: 	 #FEFFEC;
+        }
+
+        h1, h2, h3 {
+            font-family: "modesto-condensed", serif;
+        }
+
+        p, button, h6 {
+            font-family: "bookmania", serif;
         }
 
         body{
@@ -149,7 +158,6 @@
         .single-spell img {
             display: block;
             width: 50%;
-            border-radius: 50%;
             margin-right: auto;
             margin-left: auto;
             margin-top: 3%;
@@ -160,22 +168,25 @@
             float: right;
             margin-bottom: 1em;
             margin-right: 1em;
-            font-size: 1.5em;
+            font-size: 1em;
             padding: 5px;
             background-color: var(--light-cream);
-            box-shadow: 3px 3px 2px var(--deeper-red);
+            box-shadow: 2px 2px 2px var(--deeper-red);
             border: none;
+            margin-top: 2%;
         }
 
         .single-spell p {
             margin-left: 5%;
+            margin-top: 2%;
             font-size: 1.5em;
+            float: left;
         }
 
-        .spell-price {
+        /* .spell-price {
             font-size: 1.5em;
             font-style: italic;
-        }
+        } */
 
         #spell-schools {
             display: flex;
@@ -212,6 +223,12 @@
         .spell-school p {
             font-size: 1.5em;
             text-align: center;
+        }
+
+        .spell-info {
+            display: flex;
+            flex-direction: row;
+            float: left;
         }
 
     </style>
