@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "db:seed": "node db/seed",
     "server-dev": "nodemon server/index",
     "build-dev": "webpack -w  --mode=development",
