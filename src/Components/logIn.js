@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; 
 import { loginAdventurer } from '../AjaxHelpers/Adventurers';
-
+import { Link } from 'react-router-dom';
 const Login = () => {
 
   const [ usernameInput, setUsernameInput ] = useState('');
@@ -47,6 +47,7 @@ const Login = () => {
         </div>
         <p className={messageClass} >{message}</p>
         <button id="logInButton"> Log In </button>
+        <Link to="/register"> Not Registered? Click Here! </Link> 
       </form>
     </div>
 )
