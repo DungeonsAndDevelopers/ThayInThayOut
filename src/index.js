@@ -11,6 +11,7 @@ import User from './Components/users';
 import Login from './Components/logIn';
 import Registration from './Components/registration';
 import Footer from './Components/Footer';
+import Checkout from './Components/checkout';
 const App = () => { ;
 
 return (
@@ -25,6 +26,7 @@ return (
 			<Route path='/user/:username' element={<User/>}/>
 			<Route path='/login' element={<Login/>}/>
 			<Route path='/register' element={<Registration/>}/>
+			<Route path='/checkout' element={<Checkout/>}/>
 		</Routes>
 		<Footer />
 	</div>
