@@ -6,7 +6,7 @@ const Cart = () => {
 	const [ cart, setCart ] = useState([]);
 
 	useEffect(()=>{
-		fetchAdventurerCart('edgind', setCart);
+		fetchAdventurerCart(window.localStorage.getItem('username'), setCart);
 	},[])
 
 	return (

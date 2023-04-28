@@ -19,14 +19,15 @@ const registerNewAdventurer = async(firstName, lastName, username, password, con
       setter(result.message);
       if(!result.error){
          classSetter('text-success');
-         window.localStorage.setItem('advToken', result.token)
+         window.localStorage.setItem('advToken', result.token);
+         window.localStorage.setItem('username', username);
          nav('/');
         }
       else classSetter('text-danger');
   }).catch(console.error)
 };
 
-export const loginAdventurer = (username, password, setter, classSetter) =>{
+export const loginAdventurer = (username, password, setter, classSetter, nav) =>{
   fetch(`api/login`,{
     method: "POST",
     headers:{
@@ -43,7 +44,8 @@ export const loginAdventurer = (username, password, setter, classSetter) =>{
       if(!result.error){
         classSetter('text-success');
         window.localStorage.setItem('advToken', result.token);
-        nav('/')
+        window.localStorage.setItem('username', username);
+        nav('/');
       }
       else classSetter('text-danger');
     }).catch(console.error);
