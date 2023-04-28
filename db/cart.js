@@ -1,4 +1,5 @@
 const client = require('./client')
+const {getAdventurerByUsername} = require('./adventurers');
 
 //Add item to cart
 const addItemToCart = async (spellId, adventurerId, quantity = 1) => {
@@ -14,14 +15,18 @@ try{
 }
 }
 
-const getCartByAdventurerId = async (adventurerId) => {
+const getCartByAdventurerId = async (username) => {
     try {
-            const {rows: cart} = await client.query(`
-                SELECT "adventurerId", spells.name, spells.base_level, "is_active" FROM cart
-                JOIN spells 
-                ON cart."spellId" = spells.id
-                WHERE "adventurerId" = $1;
-            `, [adventurerId]);
+			
+			const adventurer = await getAdventurerByUsername(username);
+			const adventurerId = adventurer.id;
+			const {rows: cart} = await client.query(`
+					SELECT "adventurerId", spells.name, spells.base_level, "is_active" FROM cart
+					JOIN spells 
+					ON cart."spellId" = spells.id
+					WHERE "adventurerId" = $1;
+			`, [adventurerId]);
+
         return cart
     } catch (error) {
         throw error;
@@ -29,12 +34,6 @@ const getCartByAdventurerId = async (adventurerId) => {
 
 }
 
-// const test = async() =>{
-//   client.connect()
-//   console.log(await setCartInactive(1));
-//   client.end()
-// }
-// test()
 //updated quantity in cart
 
 const updateCartQuantity = async (cartId, quantity) => {
