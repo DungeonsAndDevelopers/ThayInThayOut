@@ -1,11 +1,12 @@
 
-const fetchAdventurerCart = async(adventurerId, setter) =>{
+const fetchAdventurerCart = async(username, setter) =>{
   try{
-    const response = await fetch(`/api/cart/${adventurerId}`);
+    const response = await fetch(`/api/cart/${username}`);
     const result =  await response.json();
-    console.log(response);
     setter(result.cart);
   }catch(err){
     throw err
   }
 }
+
+export default fetchAdventurerCart;

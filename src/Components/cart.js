@@ -1,60 +1,12 @@
-	import React, { useState, useEffect } from 'react' 
-
+import React, { useState, useEffect } from 'react' 
+import fetchAdventurerCart from '../AjaxHelpers/Cart';
 
 
 const Cart = () => {
 	const [ cart, setCart ] = useState([]);
 
-	const dummyCart = [
-		{
-				id: 1,
-				adventurerId: 1,
-				name: 'Spell1',
-				quanity: 1,
-				cost: 100,
-				baseLevel: 0,
-				isActive: true
-		},
-		{
-				id: 2,
-				adventurerId: 1,
-				name: 'Spell2',
-				quanity: 1,
-				cost: 100,
-				baseLevel: 1,
-				isActive: true
-		},
-		{
-				id: 3,
-				adventurerId: 1,
-				name: 'Spell3',
-				quanity: 1,
-				cost: 100,
-				baseLevel: 2,
-				isActive: false
-		},
-		{
-				id: 4,
-				adventurerId: 1,
-				name: 'Spell4',
-				quanity: 1,
-				cost: 100,
-				baseLevel: 3,
-				isActive: true
-		},
-		{
-				id: 5,
-				adventurerId: 1,
-				name: 'Spell5',
-				quanity: 1,
-				cost: 100,
-				baseLevel: 4,
-				isActive: true
-		}
-	]
-
 	useEffect(()=>{
-		setCart(dummyCart);
+		fetchAdventurerCart(window.localStorage.getItem('username'), setCart);
 	},[])
 
 	return (
@@ -63,13 +15,13 @@ const Cart = () => {
 				{
 					cart.map((item, index)=>{
 						return(
-							item.isActive ? 
+							item.is_active ? 
 							<div key={index} className='rounded d-flex justify-content-between  p-3 mb-2 bg-ivory shadow-lg'>
 								<div className='mr-5'>Image Place Holder</div>
 								<div>
 									<div className='mb-2'>{item.name}</div>
 									<div className='mb-2'> quanity: {item.quanity}</div>
-									<div className='mb-2' >price: {50 + (item.cost * item.baseLevel)}</div>
+									<div className='mb-2' >price: {50 + (100 * item.base_level)}</div>
 									<button className='px-2 rounded'>Remove</button>
 								</div>
 							</div>: null
@@ -82,8 +34,8 @@ const Cart = () => {
 					<div className='d-flex align-items-center'>Total: 
 					<h3 className='ml-2'>
 						{cart.reduce((accumulator, currentValue, index)=>{
-						if(cart[index].isActive){
-						return accumulator +(50 + (cart[index].cost * cart[index].baseLevel))
+						if(cart[index].is_active){
+						return accumulator +(50 + (100 * cart[index].base_level))
 						}
 						else return accumulator + 0
 					}, 0)
