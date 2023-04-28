@@ -21,7 +21,6 @@ const getAllSpells = async() =>{
   const { rows: spells } = await client.query(`
     SELECT * FROM spells;
   `)
-  console.log(spells)
   return spells
   }catch(err){
     throw err;
