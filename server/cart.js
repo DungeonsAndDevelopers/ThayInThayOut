@@ -3,15 +3,15 @@ const cartRouter = express.Router();
 const { addItemToCart, getCartByAdventurerId, 
         updateCartQuantity, setCartInactive} = require('../db/cart');
 
-cartRouter.get('/:adventurerId', async(req, res, next)=>{
+cartRouter.get('/:username', async(req, res, next)=>{
   const output = {
     success: false,
     error: null,
     cart: null
   }
-  const adventurerId = req.params.adventurerId;
+  const username = req.params.username;
   try{
-    const cart = await getCartByAdventurerId(adventurerId);
+    const cart = await getCartByAdventurerId(username);
     output.success = true;
     output.cart = cart;
 

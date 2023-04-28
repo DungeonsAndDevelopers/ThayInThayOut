@@ -22,7 +22,6 @@ spellsRouter.get('/', async(req, res, next) =>{
 
 spellsRouter.get('/school/:schoolName', async(req, res, next) =>{
   const schoolName = req.params.schoolName;
-  console.log(schoolName)
   const output ={
     success: false,
     error: null,
