@@ -36,7 +36,43 @@ cartRouter.post('/addToCart/:adventurerId', async(req, res, next) => {
     }catch(err){
         output.error = err;
     }
+
     res.send(output);
 })
+
+cartRouter.post('/quantityCart/:adventurerId', async(req, res, next) => {
+  const adventurerId = req.params.adventurerId;
+  const output = {
+    success : false,
+    error : null,
+    cart : null
+  }
+  try{
+    const cart = await updateCartQuantity(req.body.cartId, adventurerId);
+    output.success = true;
+
+  }catch(err){
+    output.error = err;
+  }
+  res.send(output);
+})
+
+cartRouter.post('/inactiveCart/:adventurerId', async(req, res, next) =>{
+  const adventurerId = req.params.adventurerId;
+  const output = {
+    success : false,
+    error : null,
+    cart : null
+  }
+  try{
+    const cart = await setCartInactive(req.body.ca);
+    output.success = true;
+
+  }catch(err){
+    output.error = err;
+  }
+  res.send(output);
+})
+
 
 module.exports = cartRouter;
