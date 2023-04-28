@@ -29,6 +29,7 @@ cartRouter.post('/addToCart/:adventurerId', async(req, res, next) => {
     }
     try{
         const cart =  await addItemToCart(req.body.spellId, adventurerId);
+        output.cart = cart
         output.success = true;
         
         

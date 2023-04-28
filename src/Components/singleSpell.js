@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSingleSpell } from '../AjaxHelpers/Spells'; 
 import { useParams } from 'react-router-dom';
+import { ajaxAddItemToCart } from '../AjaxHelpers/Cart';
 
 const SingleSpell = () => {
 
 	let { spellId } = useParams();
-	console.log(spellId)
 	const [ spell, setSpell ] = useState({});
+	const [ addedVisibility, setAddedVisibility ] = useState('invisible')
 	useEffect(()=>{
 			fetchSingleSpell(spellId, setSpell)
-	},[])
-	console.log(spellId)
+	},[]);
+
+	const handleSpellAddToCart = (spellId) =>{
+    ajaxAddItemToCart(spellId);
+    setAddedVisibility('text-success visible');
+  };
+
 	return (
 		<div className='p-5 d-flex flex-column align-items-center'>
 				<div className='d-flex justify-content-center m-5' >
@@ -22,8 +28,9 @@ const SingleSpell = () => {
 								<div className='mr-1'>Price: </div>
 								<h4 className='mr-3 font-weight-bold'>{(spell.base_level * 100) +50}gp</h4>
 							</div>
-							<button className='p-1 red-shadow rounded bg-ivory' >Add To Cart</button>
+							<button className='p-1 red-shadow rounded bg-ivory' onClick={()=>handleSpellAddToCart(spell.id)} >Add To Cart</button>
 						</div>
+						<div className={addedVisibility}>Item Added!</div>
 						<div className='mb-2'>Spell Level Selector</div>
 						<div className='d-flex flex-column align-items-center border border-dark p-2 rounded bg-ivory'> Quick Facts:
 							<div>Casting Time: {spell.casting_time}</div>
