@@ -10,6 +10,7 @@ import Admin from './Components/admin';
 import User from './Components/users';
 import Login from './Components/logIn';
 import Registration from './Components/registration';
+import Footer from './Components/Footer';
 const App = () => { ;
 
 return (
@@ -25,7 +26,7 @@ return (
 			<Route path='/login' element={<Login/>}/>
 			<Route path='/register' element={<Registration/>}/>
 		</Routes>
-	
+		<Footer />
 	</div>
     )
 }
