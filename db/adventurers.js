@@ -50,6 +50,20 @@ const getAdventurerByUsername = async(username) => {
   }
 }
 
+const editAdventuerer = async(firstName, lastName, emailAddress) =>{
+  try{
+  const { rows: [adventurer] } = await client.query(`
+    INSERT INTO adventurers (first_name, last_name, email_address)
+    VALUES($1, $2, $3)
+    RETURNING *;
+  `, [firstName, lastName, emailAddress]);
+  return adventurer
+  }
+  catch(err){
+    throw err
+  }
+}
+
 module.exports = {
   createNewAdventurer,
   getAdventurerByUsernameAndPassword,
