@@ -13,14 +13,7 @@ const Checkout = () => {
 	return (
 		<div>
 
-			<button data-toggle='collapse' data-target="#cart"> 
-				<div> 
-					<div className='border-bottom border-dark'>Your cart</div>
-					{cart[0].name}
-					<div>Click to see more</div>
-					
-				</div>
-				</button>
+		
 			<div id='cart' className='collapse'>
 				<div className='bg-darkish-cream rounded width-fit-content p-2 pb-1 mr-5 '>
 					{
