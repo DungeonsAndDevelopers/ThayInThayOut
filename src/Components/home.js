@@ -44,7 +44,7 @@ const SpellSchools = () => {
             schools.map((school => {
                 return (
                     <div key={school.id} className='spell-school'>
-                        <img src='https://picsum.photos/200'></img>
+                        <img src={school.image}></img>
                         <p>{school.name}</p>
                     </div>
                 )
