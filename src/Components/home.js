@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import banner from '../../images/banner.jpg';
+// import banner from '../../images/banner.jpg';
 import { fetchAllSpellsBySchool } from '../AjaxHelpers/Spells'; 
 import fetchAllSchools from '../AjaxHelpers/schools';
 
 const BannerAd = () => {
     return (
         <div className='banner'>
-            <img id="home-banner" src={banner}></img>
+            <img id="home-banner" src='/images/banner.jpg'></img>
         </div>
     );
 }

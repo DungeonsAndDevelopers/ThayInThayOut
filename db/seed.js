@@ -5,7 +5,6 @@ const createSpellList = require('./spellAjax');
 const {
   createNewSpell,
 } = require('.');
-// const { default: createSpellList } = require('./spellAjax');
 
 
 const dropTables = async() =>{
@@ -44,7 +43,8 @@ const buildTables = async() => {
                         quantity INTEGER DEFAULT 1,
                         "isActive" BOOLEAN DEFAULT true);
     CREATE TABLE schools( id SERIAL PRIMARY KEY,
-                          name VARCHAR(25));
+                          name VARCHAR(25),
+                          image VARCHAR(250));
   `)
   console.log('FINISHED BUILDING TABLES');
 }
@@ -67,23 +67,16 @@ const createAdventurers = async () => {
   await createNewAdventurer('Edgin', 'Darvis', 'spoonybard@dnd.com', 'edgind', 'holgaisoutofmyleague', true, true);
   await createNewAdventurer('Holga', 'Kilgore', 'iwouldliketorage@dnd.com', 'holgak', 'hulksmash', true, false);
   await createNewAdventurer('Forge', 'Fitzwilliam', 'definitelynothughgrant@dnd.com', 'forgef', 'legitbusinessman', true, true);
-  // await client.query(`
-  //   INSERT INTO adventurers (first_name, last_name, email_address, username, password, is_active, is_admin)
-  //   VALUES
-  //     ('Edgin', 'Darvis', 'spoonybard@dnd.com', 'edgind', 'holgaisoutofmyleague', true, true),
-  //     ('Holga', 'Kilgore', 'iwouldliketorage@dnd.com', 'holgak', 'hulksmash', true, false),
-  //     ('Forge', 'Fitzwilliam', 'definitelynothughgrant@dnd.com', 'forgef', 'legitbusinessman', true, true);
-  // `);
   console.log('ADVENTURERS CREATED');
 }
 
 const createSchools = async () => {
   console.log('CREATING SCHOOLS');
   await client.query(`
-    INSERT INTO schools (name)
+    INSERT INTO schools (name, image)
     VALUES
-    ('Abjuration'), ('Conjuration'), ('Divination'), ('Enchantment'),
-    ('Evocation'), ('Illusion'), ('Necromancy'), ('Transmutation');
+    ('Abjuration','/images/abjuration.png'), ('Conjuration', '/images/conjuration.png'), ('Divination', '/images/divination.png'), ('Enchantment', '/images/enchantment.png'),
+    ('Evocation', '/images/evocation.png'), ('Illusion', '/images/illusion.png'), ('Necromancy', '/images/necromancy.png'), ('Transmutation', '/images/transmutation.png');
   `);
   console.log('SCHOOLS CREATED');
 }
@@ -132,5 +125,3 @@ const seedDb = async() =>{
 }
 
 seedDb();
-
-//comment

@@ -1,11 +1,11 @@
 const client = require('./client')
-const schoolTable = async (name) => {
+const schoolTable = async (name, imageURL) => {
     try{
         const { row:[school] } = await client.query(`
-        INSERT INTO schools(name)
-        VALUE($1)
+        INSERT INTO schools(name, image)
+        VALUE($1, $2)
         RETURNING *;
-        `,[name])
+        `,[name, imageURL])
         return school
     }catch(err){
         throw err;
