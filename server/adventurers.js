@@ -1,7 +1,7 @@
 const express = require('express');
 const adventurerRouter = express.Router();
 const { createNewAdventurer, 
-        getAdventurerByUsernameAndPassword,
+        getAdventurerByUsername,
         editAdventurer } = require('../db/adventurers');
 
 adventurerRouter.get('/:username', async(req, res, next) => {
@@ -12,26 +12,10 @@ adventurerRouter.get('/:username', async(req, res, next) => {
     }
     const username = req.params.username;
     try{
-        const adventurer = await createNewAdventurer(adventurer);
+        const adventurer = await getAdventurerByUsername(username);
         output.success = true;
-        output.username = username;
+        output.adventurer = adventurer;
         
-    }catch(err){
-        output.error = err;
-    }
-    res.send(output)
-})
-adventurerRouter.post('/:username/adventurer', async(req, res, next) => {
-    const username = req.params.username;
-    const output = {
-        success : false,
-        error : null,
-        adventurer : null
-    }
-    try{
-    const adventurer = await getAdventurerByUsernameAndPassword(adventurer)
-    output.success = true;
-
     }catch(err){
         output.error = err;
     }
