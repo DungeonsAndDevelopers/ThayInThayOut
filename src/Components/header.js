@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
-
+import {Link} from "react-router-dom"
 const Header = () =>{
 
 
@@ -16,7 +16,7 @@ return(
       <Form>
         <input placeholder='search' className='mr-2 faded-red-border' />
       </Form>
-      <h6 className='deeper-red-border p-1 mt-2 dim'>Login</h6>
+      <Link to="login"><h6 className='deeper-red-border p-1 mt-2 dim'>Login</h6></Link>
     </div>
     <div className='pt-2 pb-2 px-4 d-flex justify-content-center align-items-center deeper-red-bg border-box'>
       <h6 className='mr-5'>Shop Spells By:</h6>
