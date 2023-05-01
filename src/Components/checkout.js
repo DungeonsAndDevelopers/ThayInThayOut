@@ -14,8 +14,8 @@ const Checkout = () => {
 		<div>
 
 		
-			<div id='cart' className='collapse'>
-				<div className='bg-darkish-cream rounded width-fit-content p-2 pb-1 mr-5 '>
+			<div id='cart' className='m-2'>
+				<div className='bg-darkish-cream rounded width-fit-content p-2 pb-1 mr-5 scroll-bar  '>
 					{
 						cart.map((item, index)=>{
 							return(
