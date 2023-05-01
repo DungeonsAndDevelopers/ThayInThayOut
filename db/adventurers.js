@@ -67,7 +67,8 @@ const editAdventuerer = async(firstName, lastName, emailAddress) =>{
 module.exports = {
   createNewAdventurer,
   getAdventurerByUsernameAndPassword,
-  getAdventurerByUsername
+  getAdventurerByUsername,
+  editAdventuerer
 }
 
 
