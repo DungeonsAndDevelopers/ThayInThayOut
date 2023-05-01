@@ -7,6 +7,7 @@ const apiRouter = require('./api');
 
 server.use(express.json());
 
+server.use(express.static("public"));
 server.use('/dist', express.static(path.join(__dirname, "../dist")));
 server.get('/', (req, res, next)=> res.sendFile(path.join(__dirname, '../public', 'index.html')))
 

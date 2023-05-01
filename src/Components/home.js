@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import banner from '../../images/banner.jpg';
+// import banner from '../../images/banner.jpg';
 import { fetchAllSpellsBySchool } from '../AjaxHelpers/Spells'; 
 import fetchAllSchools from '../AjaxHelpers/schools';
 
 const BannerAd = () => {
     return (
         <div className='banner'>
-            <img id="home-banner" src={banner}></img>
+            <img id="home-banner" src='/images/banner.jpg'></img>
         </div>
     );
 }
@@ -44,7 +44,7 @@ const SpellSchools = () => {
             schools.map((school => {
                 return (
                     <div key={school.id} className='spell-school'>
-                        <img src='https://picsum.photos/200'></img>
+                        <img src={school.image}></img>
                         <p>{school.name}</p>
                     </div>
                 )
