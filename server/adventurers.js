@@ -21,6 +21,7 @@ adventurerRouter.get('/:username', async(req, res, next) => {
     }
     res.send(output)
 })
+
 adventurerRouter.post('/:username/emailAddress', async(req, res, next) => {
     const username = req.params.username;
     const output = {
