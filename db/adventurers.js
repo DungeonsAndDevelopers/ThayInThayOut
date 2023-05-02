@@ -44,13 +44,14 @@ const getAdventurerByUsername = async(username) => {
       SELECT * FROM adventurers
       WHERE username = $1;
     `, [username]);
+    delete adventurer.password
     return adventurer;
   } catch (error) {
     throw(error);
   }
 }
 
-const editAdventuerer = async(firstName, lastName, emailAddress) =>{
+const editAdventurer = async(firstName, lastName, emailAddress) =>{
   try{
   const { rows: [adventurer] } = await client.query(`
     INSERT INTO adventurers (first_name, last_name, email_address)
@@ -67,7 +68,8 @@ const editAdventuerer = async(firstName, lastName, emailAddress) =>{
 module.exports = {
   createNewAdventurer,
   getAdventurerByUsernameAndPassword,
-  getAdventurerByUsername
+  getAdventurerByUsername,
+  editAdventurer
 }
 
 
