@@ -18,7 +18,7 @@ return(
       </Form>
       <Link to="login"><h6 className='deeper-red-border p-1 mt-2 dim'>Login</h6></Link>
     </div>
-    <div className='pt-2 pb-2 px-4 d-flex justify-content-center align-items-center deeper-red-bg border-box'>
+    <div className='pt-2 pb-2 px-4 d-flex justify-content-center align-items-center deeper-red-bg border-box sticky-top'>
       <h6 className='mr-5'>Shop Spells By:</h6>
       <div className="dropdown mx-5">
         <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
