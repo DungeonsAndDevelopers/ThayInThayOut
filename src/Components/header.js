@@ -15,7 +15,7 @@ return(
         <h1 className='header m-2'>Thay In, Thay Out</h1>
     </div>
     <div className='pt-2 pb-2 px-4 d-flex justify-content-center align-items-center deeper-red-bg border-box'>
-      <h6 className='mr-5'>Shop Spells By:</h6>
+      <p className='mr-5' id='shop-spells-by'><strong>Shop Spells By:</strong></p>
       <div className="dropdown mx-5">
         <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           School
@@ -38,7 +38,15 @@ return(
           <div className="dropdown-item">One Hour</div>
         </div>
       </div>     
-      <p className="mt-3 font-weight-bold mx-5 header-dropdown">Healing</p>
+      <div className="dropdown mx-5 ">
+        <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Healing</button>
+        <div className="dropdown-menu " aria-labelledby="dropdownMenuButton">
+          <div className="dropdown-item">HP Restoration</div>
+          <div className="dropdown-item">Resurrection</div>
+          <div className="dropdown-item">Other</div>
+        </div>
+      </div>    
+
       <div className="dropdown mx-5">
         <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Damage Type
