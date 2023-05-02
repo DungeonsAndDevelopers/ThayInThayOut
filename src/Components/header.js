@@ -8,7 +8,7 @@ const Header = () =>{
 
 return(
   <div>
-    <div className='mt-2 mx-3 d-flex flex-row justify-content-around align-items-center '>
+    <div className='mt-2 mx-3 d-flex flex-row align-items-center logo'>
      
         <img  src="https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp"
         alt="Thay symbol" className='logo-hover-state' />
