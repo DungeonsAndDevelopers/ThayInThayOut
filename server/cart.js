@@ -66,7 +66,7 @@ cartRouter.post('/inactiveCart/:adventurerId', async(req, res, next) =>{
     cart : null
   }
   try{
-    const cart = await setCartInactive(req.body.ca);
+    const cart = await setCartInactive(req.body.cart);
     output.success = true;
 
   }catch(err){
