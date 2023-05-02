@@ -13,10 +13,6 @@ return(
         <img  src="https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp"
         alt="Thay symbol" className='logo-hover-state' />
         <h1 className='header m-2'>Thay In, Thay Out</h1>
-      <Form>
-        <input placeholder='search' className='mr-2 faded-red-border' />
-      </Form>
-      <Link to="login"><h6 className='deeper-red-border p-1 mt-2 dim'>Login</h6></Link>
     </div>
     <div className='pt-2 pb-2 px-4 d-flex justify-content-center align-items-center deeper-red-bg border-box'>
       <h6 className='mr-5'>Shop Spells By:</h6>
@@ -54,6 +50,10 @@ return(
         </div>
       </div>
       <FontAwesomeIcon className='dim' icon={faCartShopping}/>
+      <Form>
+        <input placeholder='search' className='mr-2 faded-red-border search' />
+      </Form>
+      <Link to="login"><p className='deeper-red-border mt-2 dim login'>Login / Register</p></Link>
     </div>
   </div>
 )
