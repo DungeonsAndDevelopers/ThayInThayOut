@@ -8,18 +8,14 @@ const Header = () =>{
 
 return(
   <div>
-    <div className='mt-2 mx-3 d-flex flex-row justify-content-around align-items-center '>
+    <div className='mt-2 mx-3 d-flex flex-row align-items-center logo'>
      
         <img  src="https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp"
         alt="Thay symbol" className='logo-hover-state' />
         <h1 className='header m-2'>Thay In, Thay Out</h1>
-      <Form>
-        <input placeholder='search' className='mr-2 faded-red-border' />
-      </Form>
-      <Link to="login"><h6 className='deeper-red-border p-1 mt-2 dim'>Login</h6></Link>
     </div>
     <div className='pt-2 pb-2 px-4 d-flex justify-content-center align-items-center deeper-red-bg border-box'>
-      <h6 className='mr-5'>Shop Spells By:</h6>
+      <p className='mr-5' id='shop-spells-by'><strong>Shop Spells By:</strong></p>
       <div className="dropdown mx-5">
         <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           School
@@ -42,7 +38,15 @@ return(
           <div className="dropdown-item">One Hour</div>
         </div>
       </div>     
-      <p className="mt-3 font-weight-bold mx-5 header-dropdown">Healing</p>
+      <div className="dropdown mx-5 ">
+        <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Healing</button>
+        <div className="dropdown-menu " aria-labelledby="dropdownMenuButton">
+          <div className="dropdown-item">HP Restoration</div>
+          <div className="dropdown-item">Resurrection</div>
+          <div className="dropdown-item">Other</div>
+        </div>
+      </div>    
+
       <div className="dropdown mx-5">
         <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Damage Type
@@ -54,6 +58,10 @@ return(
         </div>
       </div>
       <FontAwesomeIcon className='dim' icon={faCartShopping}/>
+      <Form>
+        <input placeholder='search' className='mr-2 faded-red-border search' />
+      </Form>
+      <Link to="login"><p className='deeper-red-border mt-2 dim login'>Login / Register</p></Link>
     </div>
   </div>
 )
