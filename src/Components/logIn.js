@@ -10,8 +10,8 @@ const Login = () => {
   const [ passwordInput, setPasswordInput ] = useState('');
   const [ isViewingPassword, setIsViewingPassword ] = useState(false);
   const [ passwordInputType, setPasswordInputType ] = useState('password');
-  const [ message, setMessage ] = useState('');
-  const [ messageClass, setMessageClass ] = useState('');
+  const [ message, setMessage ] = useState('placeholder');
+  const [ messageClass, setMessageClass ] = useState('invisible');
   
   const handlePasswordView = () =>{
     if(isViewingPassword){
@@ -35,7 +35,7 @@ const Login = () => {
 
   return(
     
-    <div>
+    <div className='p-5'>
       { window.localStorage.getItem('advToken') ? 
       <h2>You are already Logged in</h2>: 
       <div className='d-flex flex-column align-items-center' >
@@ -44,14 +44,14 @@ const Login = () => {
         <form onSubmit={handleSumbit} className='d-flex flex-column align-items-center justify-content-center'>
           <input className='mb-2 bg-ivory pl-2 pr-4' placeholder="username" onChange={handleChange}/>
           <div className='d-flex grey-border mb-3 px-2 bg-ivory '>
-            <input className='border-0 bg-ivory' type={passwordInputType} placeholder='password' onChange={handleChange} />
+            <input className='no-outline border-0 bg-ivory' type={passwordInputType} placeholder='password' onChange={handleChange} />
             {
             isViewingPassword ? <FontAwesomeIcon onClick={handlePasswordView} className='mt-1' icon={faEye} /> :
             <FontAwesomeIcon className='mt-1' onClick={handlePasswordView} icon={faEyeSlash} />
             }
           </div>
           <p className={messageClass} >{message}</p>
-          <button id="logInButton"> Log In </button>
+          <button className='px-2 red-shadow mb-2'> Log In </button>
           <Link to="/register"> Not Registered? Click Here! </Link> 
         </form>
       </div> 
