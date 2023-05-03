@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react' 
 import fetchAdventurerCart from '../AjaxHelpers/Cart';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
@@ -10,6 +11,9 @@ const Cart = () => {
 	},[])
 
 	return (
+		<>
+		{
+		window.localStorage.getItem('advToken') ?
 		<div id="cart" className='p-5 d-flex justify-content-center fixed-parent'>
 			<div className='bg-darkish-cream rounded width-fit-content p-2 pb-1 mr-5 '>
 				{
@@ -45,7 +49,9 @@ const Cart = () => {
 					<button className="rounded px-2">Checkout</button>
 				</div>
 			</div>	
-		</div>
+		</div> : <h2 style={{textAlign: "center", padding: '5%'}}>You must <Link to="/login">login</Link> to continue</h2>
+					}
+					</>
 	)
 }
 
