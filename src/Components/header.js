@@ -14,7 +14,7 @@ return(
         alt="Thay symbol" className='logo-hover-state' />
         <h1 className='header m-2'>Thay In, Thay Out</h1>
     </div>
-    <div className='pt-2 pb-2 px-4 d-flex justify-content-center align-items-center deeper-red-bg border-box fixed-div'>
+    <div className='pt-2 pb-2 px-4 d-flex justify-content-center align-items-center deeper-red-bg border-box'>
       <p className='mr-5' id='shop-spells-by'><strong>Shop Spells By:</strong></p>
       <div className="dropdown mx-5">
         <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,7 +57,7 @@ return(
           <div className="dropdown-item">Fire</div>
         </div>
       </div>
-      <FontAwesomeIcon className='dim' icon={faCartShopping}/>
+      <Link to="/cart"><FontAwesomeIcon className='dim' icon={faCartShopping}/></Link>
       <Form>
         <input placeholder='search' className='mr-2 faded-red-border search' />
       </Form>
