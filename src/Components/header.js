@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import {Link} from "react-router-dom"
 const Header = () =>{
 
-
+const navigate = useNavigate();
+const returnToHomePage = () =>{
+  navigate('/');
+}
+const navigateToSpellsBySchool = (schoolName) =>{
+  console.log(schoolName)
+  navigate(`/spells/schools/${schoolName}`)
+}
 return(
   <div>
-    <div className='mt-2 mx-3 d-flex flex-row align-items-center logo'>
+    <div className='mt-2 mx-3 d-flex flex-row align-items-center logo' onClick={returnToHomePage}>
      
         <img  src="https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp"
         alt="Thay symbol" className='logo-hover-state' />
@@ -21,14 +29,14 @@ return(
           School
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <div className="dropdown-item pointer">Evocation</div>
-          <div className="dropdown-item pointer">Illusion</div>
-          <div className="dropdown-item pointer">Necromancy</div>
-          <div className="dropdown-item pointer">Transmutation</div>
-          <div className="dropdown-item pointer">Abjuration</div>
-          <div className="dropdown-item pointer">Enchantment</div>
-          <div className="dropdown-item pointer">Divination</div>
-          <div className="dropdown-item pointer">Conjuration</div>
+          <div className="dropdown-item pointer" onClick={()=>navigateToSpellsBySchool('Evocation')} >Evocation</div>
+          <div className="dropdown-item pointer" onClick={()=>navigateToSpellsBySchool('Illusion')} >Illusion</div>
+          <div className="dropdown-item pointer" onClick={()=>navigateToSpellsBySchool('Necromancy')} >Necromancy</div>
+          <div className="dropdown-item pointer" onClick={()=>navigateToSpellsBySchool('Transmutation')} >Transmutation</div>
+          <div className="dropdown-item pointer" onClick={()=>navigateToSpellsBySchool('Abjuration')} >Abjuration</div>
+          <div className="dropdown-item pointer" onClick={()=>navigateToSpellsBySchool('Enchantment')} >Enchantment</div>
+          <div className="dropdown-item pointer" onClick={()=>navigateToSpellsBySchool('Divination')} >Divination</div>
+          <div className="dropdown-item pointer" onClick={()=>navigateToSpellsBySchool('Conjuration')} >Conjuration</div>
         </div>
       </div>
 

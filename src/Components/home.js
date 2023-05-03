@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// import banner from '../../images/banner.jpg';
+import { useNavigate } from 'react-router';
 import { fetchAllSpellsBySchool } from '../AjaxHelpers/Spells'; 
 import fetchAllSchools from '../AjaxHelpers/schools';
 
 const BannerAd = () => {
+
     return (
         <div className='banner'>
             <img id="home-banner" src='/images/banner.jpg'></img>
@@ -13,6 +14,7 @@ const BannerAd = () => {
 
 const PopularSpells = (props) => {
     const [spells, setSpells] = useState([]);
+   
     useEffect(() => {
         fetchAllSpellsBySchool(props.school, setSpells);
     }, []);
@@ -33,6 +35,11 @@ const PopularSpells = (props) => {
 };
 
 const SpellSchools = () => {
+    const navigate = useNavigate();
+    const navigateToSpellsBySchool = (schoolName) =>{
+        console.log(schoolName)
+        navigate(`/spells/schools/${schoolName}`)
+    }
     const [schools, setSchools] = useState([]);
     useEffect(() => {
         fetchAllSchools(setSchools);
@@ -43,7 +50,7 @@ const SpellSchools = () => {
         {
             schools.map((school => {
                 return (
-                    <div key={school.id} className='spell-school'>
+                    <div key={school.id} className='spell-school pointer' onClick={()=>navigateToSpellsBySchool(school.name)}>
                         <img src={school.image}></img>
                         <p>{school.name}</p>
                     </div>
