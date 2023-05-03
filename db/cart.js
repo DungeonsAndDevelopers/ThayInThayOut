@@ -21,7 +21,7 @@ const getCartByAdventurerId = async (username) => {
 			const adventurer = await getAdventurerByUsername(username);
 			const adventurerId = adventurer.id;
 			const {rows: cart} = await client.query(`
-					SELECT "adventurerId", spells.name, spells.base_level, "is_active" FROM cart
+					SELECT "adventurerId", spells.name, spells.base_level, "is_active", quantity FROM cart
 					JOIN spells 
 					ON cart."spellId" = spells.id
 					WHERE "adventurerId" = $1;

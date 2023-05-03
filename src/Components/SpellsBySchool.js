@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import fetchAllSpellsFE from '../AjaxHelpers/Spells';
-import { useNavigate } from 'react-router';
+import { fetchAllSpellsBySchool } from '../AjaxHelpers/Spells';
+import { useNavigate, useParams } from 'react-router';
 import { ajaxAddItemToCart } from '../AjaxHelpers/Cart';
 
-const AllSpells = () =>{
+const SpellsBySchool = () =>{
 
+  const { schoolName } = useParams(); 
+  console.log(schoolName)
   const [ allSpells, setAllSpells ] = useState([]);
   const [ addedSpellId, setAddedSpellId ] = useState('');
   const navigation = useNavigate();
@@ -13,13 +15,15 @@ const AllSpells = () =>{
     navigation(`/spells/${spellId}`)
   }
   useEffect(()=>{
-    fetchAllSpellsFE(setAllSpells);
+    fetchAllSpellsBySchool(schoolName, setAllSpells)
   },[])
   const handleSpellAddToCart = (spellId) =>{
     ajaxAddItemToCart(spellId);
     setAddedSpellId(spellId)
   }
+  console.log(allSpells)
   return(
+  
     <div id="all-spells" className='p-2 d-flex justify-content-center'>
       <div className='d-flex flex-wrap justify-content-center'>
         {
@@ -44,6 +48,4 @@ const AllSpells = () =>{
   )
 }
 
-export default  AllSpells
-
-
+export default  SpellsBySchool;
