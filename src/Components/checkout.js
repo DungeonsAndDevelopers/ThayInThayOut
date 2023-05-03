@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react' 
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import fetchAdventurerCart from '../AjaxHelpers/Cart';
 const Checkout = () => {
 
+	const navigate = useNavigate();
 	const [ cart, setCart ] = useState([{name:'placeholder'}]);
 	const [ total, setTotal ] = useState('');
 	const [ adjustedCart, setAdjustedCart ] = useState([]);
@@ -30,7 +32,11 @@ const Checkout = () => {
 			else return accumulator + 0
 		}, 0)
 		setTotal(total);
-	},[cart])
+	},[cart]);
+
+	const directToThanks = () =>{
+		navigate('/thanks')
+	}
 	return (
 		<div className='p-2  mt-5 mb-5 mr-5 d-flex flex-column align-items-center '>
 			<div className='d-flex w-75  d-flex justify-content-center'>
@@ -124,7 +130,7 @@ const Checkout = () => {
 					<div className='d-flex align-items-center'>Total: 
 					<h3 className='ml-2'>{total + (total * 0.08) + (total * 0.1)}gp</h3>
 					</div>
-					<button className="rounded px-2">Checkout</button>
+					<button className="rounded px-2" onClick={directToThanks} >Checkout</button>
 				</div>
 			</div>
 			</div> 

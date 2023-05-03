@@ -12,6 +12,7 @@ import Login from './Components/logIn';
 import Registration from './Components/registration';
 import Footer from './Components/Footer';
 import Checkout from './Components/checkout';
+import Thanks from './Components/Thanks';
 const App = () => { ;
 
 return (
@@ -27,6 +28,7 @@ return (
 			<Route path='/login' element={<Login/>}/>
 			<Route path='/register' element={<Registration/>}/>
 			<Route path='/checkout' element={<Checkout/>}/>
+			<Route path='/thanks' element={<Thanks />} />
 		</Routes>
 		<Footer />
 	</div>
