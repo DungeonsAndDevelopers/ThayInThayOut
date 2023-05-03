@@ -21,14 +21,14 @@ return(
           School
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <div className="dropdown-item">Evocation</div>
-          <div className="dropdown-item">Illusion</div>
-          <div className="dropdown-item">Necromancy</div>
-          <div className="dropdown-item">Transmutation</div>
-          <div className="dropdown-item">Abjuration</div>
-          <div className="dropdown-item">Enchantment</div>
-          <div className="dropdown-item">Divination</div>
-          <div className="dropdown-item">Conjuration</div>
+          <div className="dropdown-item pointer">Evocation</div>
+          <div className="dropdown-item pointer">Illusion</div>
+          <div className="dropdown-item pointer">Necromancy</div>
+          <div className="dropdown-item pointer">Transmutation</div>
+          <div className="dropdown-item pointer">Abjuration</div>
+          <div className="dropdown-item pointer">Enchantment</div>
+          <div className="dropdown-item pointer">Divination</div>
+          <div className="dropdown-item pointer">Conjuration</div>
         </div>
       </div>
 
@@ -37,18 +37,18 @@ return(
           Casting Time
         </button>
         <div className="dropdown-menu " aria-labelledby="dropdownMenuButton">
-          <div className="dropdown-item">Instantaneous</div>
-          <div className="dropdown-item">A Minute</div>
-          <div className="dropdown-item">Ten Minutes</div>
-          <div className="dropdown-item">One Hour</div>
+          <div className="dropdown-item pointer">Instantaneous</div>
+          <div className="dropdown-item pointer">A Minute</div>
+          <div className="dropdown-item pointer">Ten Minutes</div>
+          <div className="dropdown-item pointer">One Hour</div>
         </div>
       </div>     
       <div className="dropdown mx-5 ">
         <button className="dropdown-toggle header-dropdown font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Healing</button>
         <div className="dropdown-menu " aria-labelledby="dropdownMenuButton">
-          <div className="dropdown-item">HP Restoration</div>
-          <div className="dropdown-item">Resurrection</div>
-          <div className="dropdown-item">Other</div>
+          <div className="dropdown-item pointer">HP Restoration</div>
+          <div className="dropdown-item pointer">Resurrection</div>
+          <div className="dropdown-item pointer">Other</div>
         </div>
       </div>    
 
@@ -57,19 +57,19 @@ return(
           Damage Type
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <div className="dropdown-item">Force</div>
-          <div className="dropdown-item">Necrotic</div>
-          <div className="dropdown-item">Thunder</div>
-          <div className="dropdown-item">Lightning</div>
-          <div className="dropdown-item">Cold</div>
-          <div className="dropdown-item">Radiant</div>
-          <div className="dropdown-item">Fire</div>
-          <div className="dropdown-item">Poison</div>
-          <div className="dropdown-item">Acid</div>
-          <div className="dropdown-item">Psychic</div>
-          <div className="dropdown-item">Slashing (Magical)</div>
-          <div className="dropdown-item">Piercing (Magical)</div>
-          <div className="dropdown-item">Bludgeoning (Magical)</div>
+          <div className="dropdown-item pointer">Force</div>
+          <div className="dropdown-item pointer">Necrotic</div>
+          <div className="dropdown-item pointer">Thunder</div>
+          <div className="dropdown-item pointer">Lightning</div>
+          <div className="dropdown-item pointer">Cold</div>
+          <div className="dropdown-item pointer">Radiant</div>
+          <div className="dropdown-item pointer">Fire</div>
+          <div className="dropdown-item pointer">Poison</div>
+          <div className="dropdown-item pointer">Acid</div>
+          <div className="dropdown-item pointer">Psychic</div>
+          <div className="dropdown-item pointer">Slashing (Magical)</div>
+          <div className="dropdown-item pointer">Piercing (Magical)</div>
+          <div className="dropdown-item pointer">Bludgeoning (Magical)</div>
         </div>
       </div>
       <Link to="/cart"><FontAwesomeIcon className='dim' icon={faCartShopping}/></Link>
