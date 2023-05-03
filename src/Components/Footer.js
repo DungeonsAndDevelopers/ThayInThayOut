@@ -3,8 +3,8 @@ import React from 'react'
 const Footer = () =>{
 
 return(
-  <div className='deeper-red-bg p-2 '>
-    <div className='border border-dark p-3 rounded d-flex justify-content-between' >
+  <div className='deeper-red-bg p-2 footer '>
+    <div className='p-3 rounded d-flex justify-content-between' >
       <div className='d-flex flex-column' >
         <a href="https://www.dnd5eapi.co/" target="_blank">D&D 5e API</a>
         <a href='javascript:void(0)'>Contact Us</a>
