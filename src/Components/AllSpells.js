@@ -21,16 +21,6 @@ const AllSpells = () =>{
   }
   return(
     <div id="all-spells" className='p-2 d-flex justify-content-center'>
-      <div className='px-5'>
-        <div>Option</div>
-        <div>Option</div>
-        <div>Option</div>
-        <div>Option</div>
-        <div>Option</div>
-        <div>Option</div>
-        <div>Option</div>
-        <div>Option</div>
-      </div>
       <div className='d-flex flex-wrap justify-content-center'>
         {
           allSpells.map((spell, index) =>{
