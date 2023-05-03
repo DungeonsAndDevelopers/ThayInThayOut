@@ -24,6 +24,11 @@ return(
           <div className="dropdown-item">Evocation</div>
           <div className="dropdown-item">Illusion</div>
           <div className="dropdown-item">Necromancy</div>
+          <div className="dropdown-item">Transmutation</div>
+          <div className="dropdown-item">Abjuration</div>
+          <div className="dropdown-item">Enchantment</div>
+          <div className="dropdown-item">Divination</div>
+          <div className="dropdown-item">Conjuration</div>
         </div>
       </div>
 
@@ -54,7 +59,17 @@ return(
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <div className="dropdown-item">Force</div>
           <div className="dropdown-item">Necrotic</div>
+          <div className="dropdown-item">Thunder</div>
+          <div className="dropdown-item">Lightning</div>
+          <div className="dropdown-item">Cold</div>
+          <div className="dropdown-item">Radiant</div>
           <div className="dropdown-item">Fire</div>
+          <div className="dropdown-item">Poison</div>
+          <div className="dropdown-item">Acid</div>
+          <div className="dropdown-item">Psychic</div>
+          <div className="dropdown-item">Slashing (Magical)</div>
+          <div className="dropdown-item">Piercing (Magical)</div>
+          <div className="dropdown-item">Bludgeoning (Magical)</div>
         </div>
       </div>
       <Link to="/cart"><FontAwesomeIcon className='dim' icon={faCartShopping}/></Link>
