@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, Link } from 'react-router-dom'; 
 import fetchAdventurerCart from '../AjaxHelpers/Cart';
 const Checkout = () => {
 
@@ -13,18 +13,21 @@ const Checkout = () => {
 	}, []);
 
 	useEffect(()=>{
-		adjustedCart[0] = cart[0]
-		for(let i = 1; i < cart.length; i++){
-			if(adjustedCart[adjustedCart.length-1] && cart[i].name === adjustedCart[adjustedCart.length-1].name){
-				adjustedCart[adjustedCart.length-1].quantity++;
+		if(cart){
+			adjustedCart[0] = cart[0]
+			for(let i = 1; i < cart.length; i++){
+				if(adjustedCart[adjustedCart.length-1] && cart[i].name === adjustedCart[adjustedCart.length-1].name){
+					adjustedCart[adjustedCart.length-1].quantity++;
+				}
+				else {
+					adjustedCart.push(cart[i]);
+				}
 			}
-			else {
-				adjustedCart.push(cart[i]);
-			}
-		}
+		} 
 	}, [cart])
 
 	useEffect(()=>{
+		if(cart){
 		const total = cart.reduce((accumulator, currentValue, index)=>{
 			if(cart[index].is_active){
 			return accumulator +(50 + (100 * cart[index].base_level))
@@ -32,6 +35,7 @@ const Checkout = () => {
 			else return accumulator + 0
 		}, 0)
 		setTotal(total);
+	}
 	},[cart]);
 
 	const directToThanks = () =>{
@@ -39,11 +43,18 @@ const Checkout = () => {
 	}
 	return (
 		<div className='p-2  mt-5 mb-5 mr-5 d-flex flex-column align-items-center '>
+			{
+				!window.localStorage.getItem('advToken') ?
+				<div>
+					<h3>You must be logged in to see your cart</h3>
+					<h3>Click here to <Link to='/login' >login</Link> or <Link to='/register' >register</Link> </h3>
+				</div> :
 			<div className='d-flex w-75  d-flex justify-content-center'>
 				<div className='mr-5 d-flex flex-column align-items-center w-100'>
 				<div className='mb-3 bg-darkish-cream rounded  p-2 pb-1 scroll-bar w-50'>
 					<h3 className='text-center'>Your Cart:</h3>
-					{
+					{ 
+						
 						adjustedCart.map((item, index)=>{
 							return(
 								item.is_active ? 
@@ -135,7 +146,7 @@ const Checkout = () => {
 			</div>
 			</div> 
 		
-			
+				}
 		</div>
 	)
 	}
