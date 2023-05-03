@@ -47,7 +47,7 @@ const Registration = () =>{
   }
 
   return(
-    <div className='d-flex flex-column align-items-center p-3 m-5 border border-dark'>
+    <div className='d-flex flex-column align-items-center p-3 m-5'>
       <h3 className='mb-3'>Register New Adventurer</h3>
       <form className='d-flex flex-column align-items-center'onSubmit={handleSumbit} >
         <div className='d-flex justify-content-center'>
@@ -59,7 +59,7 @@ const Registration = () =>{
           <div className='d-flex flex-column  mb-2' >
             <input className='mb-3 px-2 bg-ivory' placeholder='username' onChange={handleChange} />
             <div className='d-flex grey-border mb-3 px-2 bg-ivory '>
-              <input className='border-0 bg-ivory' type={passwordInputType} placeholder='password' onChange={handleChange} />
+              <input className='no-outline border-0 bg-ivory' type={passwordInputType} placeholder='password' onChange={handleChange} />
               {
                 isViewingPassword ? <FontAwesomeIcon onClick={handlePasswordView} className='mt-1' icon={faEye} /> :
                 <FontAwesomeIcon className='mt-1' onClick={handlePasswordView} icon={faEyeSlash} />
@@ -67,7 +67,7 @@ const Registration = () =>{
               }
             </div>
             <div className='d-flex grey-border mb-3 px-2 bg-ivory'>
-              <input className='border-0 bg-ivory' type={passwordInputType} placeholder='confirm password' onChange={handleChange} />
+              <input className='no-outline  border-0 bg-ivory' type={passwordInputType} placeholder='confirm password' onChange={handleChange} />
               {
                 isViewingPassword ? <FontAwesomeIcon onClick={handlePasswordView} className='mt-1' icon={faEye} /> :
                 <FontAwesomeIcon onClick={handlePasswordView} className='mt-1' icon={faEyeSlash} />
@@ -77,7 +77,7 @@ const Registration = () =>{
           </div>
         </div>
           <p className={messageClass} >{message}</p>
-        <button className='w-25' >Submit</button>
+        <button className='w-25 red-shadow mb-2' >Submit</button>
         <Link to="/login"> Already Registered? Click Here </Link>
       </form>
     </div>
