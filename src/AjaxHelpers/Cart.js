@@ -31,4 +31,21 @@ export const ajaxAddItemToCart = async(spellId) =>{
   }
 }
 
+export const ajaxRemoveItemFromCart = async(cartId) => {
+  const decodedToken = await jwt_decode(window.localStorage.getItem('advToken'));
+    const adventurerId = decodedToken.id;
+  const response = await fetch(`/inactiveCart/${adventurerId}`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      cartId
+    })
+  })
+  const result = await response.json();
+  console.log(result);
+
+}
+
 export default fetchAdventurerCart;
