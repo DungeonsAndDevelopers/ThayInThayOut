@@ -80,7 +80,7 @@ return(
           <div className="dropdown-item pointer">Bludgeoning (Magical)</div>
         </div>
       </div>
-      <Link to="/cart"><FontAwesomeIcon className='dim' icon={faCartShopping}/></Link>
+      <Link to="/cart" className="cart-icon"><FontAwesomeIcon className='dim' icon={faCartShopping}/></Link>
       <Form>
         <input placeholder='search' className='mr-2 faded-red-border search' />
       </Form>
