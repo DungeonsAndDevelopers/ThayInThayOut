@@ -5,7 +5,17 @@ const fetchAdventurerCart = async(username, setter) =>{
   try{
     const response = await fetch(`/api/cart/${username}`);
     const result =  await response.json();
-    setter(result.cart);
+    const adjustedCart = [];
+    adjustedCart.push(result.cart[0]);
+    for(let i = 1; i < result.cart.length; i++){
+      if(adjustedCart[adjustedCart.length-1] && result.cart[i].name ===  adjustedCart[adjustedCart.length-1].name){
+        adjustedCart[adjustedCart.length-1].quantity++;
+      }
+      else{
+        adjustedCart.push(result.cart[i])
+      }
+    }
+    setter(adjustedCart);
   }catch(err){
     throw err
   }

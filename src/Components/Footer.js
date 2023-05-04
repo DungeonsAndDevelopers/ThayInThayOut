@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Footer = () =>{
 
@@ -7,7 +9,7 @@ return(
     <div className='border border-dark p-3 rounded d-flex justify-content-between' >
       <div className='d-flex flex-column' >
         <a href="https://www.dnd5eapi.co/" target="_blank">D&D 5e API</a>
-        <a href='javascript:void(0)'>Contact Us</a>
+        <Link to='/aboutus'>About Us</Link>
         <a href='javascript:void(0)'>FAQ</a>
         <a href='javascript:void(0)'>Careers</a>
         <a href='javascript:void(0)'>Customer Service</a>
