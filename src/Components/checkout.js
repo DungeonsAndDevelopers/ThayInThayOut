@@ -4,27 +4,13 @@ import fetchAdventurerCart from '../AjaxHelpers/Cart';
 const Checkout = () => {
 
 	const navigate = useNavigate();
-	const [ cart, setCart ] = useState([{name:'placeholder'}]);
+	const [ cart, setCart ] = useState([]);
 	const [ total, setTotal ] = useState('');
-	const [ adjustedCart, setAdjustedCart ] = useState([]);
 
 	useEffect(()=>{
 		fetchAdventurerCart(window.localStorage.getItem('username'), setCart)
 	}, []);
 
-	useEffect(()=>{
-		if(cart){
-			adjustedCart[0] = cart[0]
-			for(let i = 1; i < cart.length; i++){
-				if(adjustedCart[adjustedCart.length-1] && cart[i].name === adjustedCart[adjustedCart.length-1].name){
-					adjustedCart[adjustedCart.length-1].quantity++;
-				}
-				else {
-					adjustedCart.push(cart[i]);
-				}
-			}
-		} 
-	}, [cart])
 
 	useEffect(()=>{
 		if(cart){
@@ -41,6 +27,10 @@ const Checkout = () => {
 	const directToThanks = () =>{
 		navigate('/thanks')
 	}
+
+	const removeSpell = (spellName) => {
+		setCart(cart.filter((spell)=> spell.name !== spellName))
+	}
 	return (
 		<div className='p-2  mt-5 mb-5 mr-5 d-flex flex-column align-items-center '>
 			{
@@ -55,7 +45,7 @@ const Checkout = () => {
 					<h3 className='text-center'>Your Cart:</h3>
 					{ 
 						
-						adjustedCart.map((item, index)=>{
+						cart.map((item, index)=>{
 							return(
 								item.is_active ? 
 								<div key={index} className='rounded d-flex justify-content-between  p-3 mb-2 bg-ivory shadow-lg'>
@@ -64,7 +54,7 @@ const Checkout = () => {
 										<div className='mb-2'>{item.name}</div>
 										<div className='mb-2'> quanity: {item.quantity}</div>
 										<div className='mb-2' >price: {50 + (100 * item.base_level)}gp</div>
-										<button className='px-2 rounded'>Remove</button>
+										<button className='px-2 rounded red-shadow ' onClick={()=>removeSpell(item.name)} >Remove</button>
 									</div>
 								</div>: null
 							)
@@ -141,7 +131,7 @@ const Checkout = () => {
 					<div className='d-flex align-items-center'>Total: 
 					<h3 className='ml-2'>{total + (total * 0.08) + (total * 0.1)}gp</h3>
 					</div>
-					<button className="rounded px-2" onClick={directToThanks} >Checkout</button>
+					<button className="rounded px-2 red-shadow" onClick={directToThanks} >Checkout</button>
 				</div>
 			</div>
 			</div> 
