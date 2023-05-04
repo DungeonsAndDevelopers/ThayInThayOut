@@ -6,7 +6,7 @@ const Footer = () =>{
 
 return(
   <div className='deeper-red-bg p-2 '>
-    <div className='border border-dark p-3 rounded d-flex justify-content-between' >
+    <div className='p-3 rounded d-flex justify-content-between footer'>
       <div className='d-flex flex-column' >
         <a href="https://www.dnd5eapi.co/" target="_blank">D&D 5e API</a>
         <Link to='/aboutus'>About Us</Link>
