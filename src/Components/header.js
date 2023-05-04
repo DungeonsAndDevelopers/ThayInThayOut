@@ -84,7 +84,15 @@ return(
       <Form>
         <input placeholder='search' className='mr-2 faded-red-border search' />
       </Form>
-      <Link to="login"><p className='deeper-red-border mt-2 dim login'>Login / Register</p></Link>
+      {
+        !window.localStorage.getItem("advToken")?
+        <>
+          <Link to="login"><p className='deeper-red-border mt-2 dim login'>Login / Register</p></Link>
+        </> :
+        <>
+         <p className='deeper-red-border mt-2 dim login'>Log Out</p>
+        </>
+      }
     </div>
   </div>
 )
