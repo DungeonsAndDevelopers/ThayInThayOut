@@ -18,10 +18,11 @@ const PopularSpells = (props) => {
     useEffect(() => {
         fetchAllSpellsBySchool(props.school, setSpells);
     }, []);
+    console.log(spells)
     return (
         <div id="popular-spells">
         <h2>Popular Spells</h2>
-        {spells.map((spell, index) => {
+        {spells.filter((spell, index)=> index < 6).map((spell, index) => {
             return (
                 <div key={spell.id} className='single-spell'>
                     <img style={{height: 200, width: 200}}src={imagesArray[index]}></img>
