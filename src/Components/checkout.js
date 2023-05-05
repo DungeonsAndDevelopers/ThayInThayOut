@@ -6,6 +6,8 @@ const Checkout = () => {
 	const navigate = useNavigate();
 	const [ cart, setCart ] = useState([]);
 	const [ total, setTotal ] = useState('');
+	const [ pictureFileNames, setPictureFileNames ] = useState(['/images/darkvision.png', '/images/disintegrate.png', '/images/featherfall.png']);
+	
 
 	useEffect(()=>{
 		fetchAdventurerCart(window.localStorage.getItem('username'), setCart)
@@ -30,6 +32,7 @@ const Checkout = () => {
 
 	const removeSpell = (spellName) => {
 		setCart(cart.filter((spell)=> spell.name !== spellName))
+		setPictureFileNames(['/images/disintegrate.png', '/images/featherfall.png'])
 	}
 	return (
 		<div className='p-2  mt-5 mb-5 mr-5 d-flex flex-column align-items-center '>
@@ -49,7 +52,7 @@ const Checkout = () => {
 							return(
 								item.is_active ? 
 								<div key={index} className='rounded d-flex justify-content-between  p-3 mb-2 bg-ivory shadow-lg'>
-									<div className='mr-5'>Image Place Holder</div>
+									<img className='bg-dark w-25' src={pictureFileNames[index]} />
 									<div>
 										<div className='mb-2'>{item.name}</div>
 										<div className='mb-2'> quanity: {item.quantity}</div>

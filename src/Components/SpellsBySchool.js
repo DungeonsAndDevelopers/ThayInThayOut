@@ -3,12 +3,15 @@ import { fetchAllSpellsBySchool } from '../AjaxHelpers/Spells';
 import { useNavigate, useParams } from 'react-router';
 import { ajaxAddItemToCart } from '../AjaxHelpers/Cart';
 
+
 const SpellsBySchool = () =>{
 
   const { schoolName } = useParams(); 
-  console.log(schoolName)
   const [ allSpells, setAllSpells ] = useState([]);
   const [ addedSpellId, setAddedSpellId ] = useState('');
+  const [ pictureFileNames, setPictureFileNames ] = useState(['/images/awaken.png', '/images/createwater.png', '/images/darkvision.png',
+                                                              '/images/disintegrate.png', '/images/druidcraft.png', '/images/fabricate.png',
+                                                              '/images/featherfall.png'])
   const navigation = useNavigate();
 
   const goToSingleSpell = (spellId) => {
@@ -21,7 +24,6 @@ const SpellsBySchool = () =>{
     ajaxAddItemToCart(spellId);
     setAddedSpellId(spellId)
   }
-  console.log(allSpells)
   return(
   
     <div id="all-spells" className='p-5 d-flex justify-content-center mb-5'>
@@ -30,7 +32,10 @@ const SpellsBySchool = () =>{
           allSpells.map((spell, index) =>{
             return(
               <div key={index} className=' product-card d-flex flex-column align-items-center p-2 m-1 mb-5 mt-5 rounded pointer'>
-                <img className='product-image border border-dark rounded bg-ivory' src= 'https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp' onClick={()=> goToSingleSpell(spell.id)} />
+                {
+                  pictureFileNames[index] ? <img className='product-image border border-dark rounded bg-ivory' src={pictureFileNames[index]}  onClick={()=> goToSingleSpell(spell.id)} />
+                  : <img className='product-image border border-dark rounded bg-ivory' src= 'https://cdn.discordapp.com/attachments/1095734190189838457/1098304619668586506/Red_wizards_onslaught.webp' onClick={()=> goToSingleSpell(spell.id)} />
+                }
                 <div className='mt-2 text-center' onClick={()=> goToSingleSpell(spell.id)}>{spell.name}</div>
                 <div className=''>{(spell.base_level * 100) + 50 }gp</div>
                 {
