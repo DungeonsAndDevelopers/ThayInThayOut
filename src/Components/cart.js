@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 	const [ cart, setCart ] = useState([]);
+	const [ pictureFileNames, setPictureFileNames ] = useState(['/images/darkvision.png', '/images/disintegrate.png', '/images/featherfall.png']);
+
 
 	const navigate = useNavigate();
 
@@ -30,7 +32,7 @@ const Cart = () => {
 						return(
 							item.is_active ? 
 							<div key={index} className='rounded d-flex justify-content-between  p-3 mb-2 bg-ivory shadow-lg '>
-								<div className='mr-5'>Image Place Holder</div>
+									<img className='bg-dark w-25' src={pictureFileNames[index]} />
 								<div>
 									<div className='mb-2'>{item.name}</div>
 									<div className='mb-2'> quantity: {item.quantity}</div>

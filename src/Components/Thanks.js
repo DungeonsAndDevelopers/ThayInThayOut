@@ -4,11 +4,11 @@ const Thanks = () =>{
 
   return(
     <>
-      <div class="tagForThanks">Thank You For Shopping</div>
+      <div className="tagForThanks">Thank You For Shopping</div>
 
-      <div class="tagName">Stand Back!</div>
+      <div className="tagName">Stand Back!</div>
 
-      <h4 class="text-danger" >Caution: Do not look directly into the portal</h4>
+      <h4 className="text-danger caution-message" >Caution: Do not look directly into the portal</h4>
       
       <img src="../images/Thanks.png" alt="thanks" class="thankyou1"/>
 
