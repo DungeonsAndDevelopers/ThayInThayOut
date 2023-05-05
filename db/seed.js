@@ -67,6 +67,7 @@ const createAdventurers = async () => {
   await createNewAdventurer('Edgin', 'Darvis', 'spoonybard@dnd.com', 'edgind', 'holgaisoutofmyleague', true, true);
   await createNewAdventurer('Holga', 'Kilgore', 'iwouldliketorage@dnd.com', 'holgak', 'hulksmash', true, false);
   await createNewAdventurer('Forge', 'Fitzwilliam', 'definitelynothughgrant@dnd.com', 'forgef', 'legitbusinessman', true, true);
+  await createNewAdventurer('Gandalf', 'The Grey', 'thatGreyWizard@wizardwebz.org', 'gandalfTheGrey', 'youshallnotpassword', true, false);
   console.log('ADVENTURERS CREATED');
 }
 
